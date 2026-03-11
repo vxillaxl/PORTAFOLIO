@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bryan A. Ramírez · Portafolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --blue-900:#1e3a8a;
+  --blue-800:#1d4ed8;
+  --blue-700:#2563eb;
+  --blue-600:#3b82f6;
+  --blue-500:#60a5fa;
+  --blue-200:#bfdbfe;
+  --blue-100:#dbeafe;
+  --blue-50:#eff6ff;
+  --white:#ffffff;
+  --gray-50:#f8fafc;
+  --gray-100:#f1f5f9;
+  --gray-200:#e2e8f0;
+  --gray-400:#94a3b8;
+  --gray-600:#475569;
+  --gray-800:#1e293b;
+  --shadow-sm:0 1px 3px rgba(30,58,138,.08);
+  --shadow:0 4px 16px rgba(30,58,138,.12);
+  --shadow-lg:0 12px 40px rgba(30,58,138,.18);
+  --r:14px;
+}
+
+html{scroll-behavior:smooth}
+
+body{
+  background:var(--white);
+  color:var(--gray-800);
+  font-family:'DM Sans',sans-serif;
+  font-size:16px;
+  line-height:1.6;
+}
+
+/* ── NAV ── */
+nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(255,255,255,.95);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--blue-100);
+  padding:0 clamp(20px,5vw,64px);
+  display:flex;align-items:center;justify-content:space-between;
+  height:68px;
+  box-shadow:0 1px 0 var(--blue-100);
+}
+.nav-logo{
+  font-family:'Playfair Display',serif;
+  font-size:22px;font-weight:900;
+  color:var(--blue-900);
+  letter-spacing:-.5px;
+}
+.nav-logo span{color:var(--blue-700)}
+.nav-links{display:flex;align-items:center;gap:8px}
+.nav-links a{
+  padding:8px 16px;border-radius:8px;
+  font-size:14px;font-weight:500;
+  color:var(--gray-600);text-decoration:none;
+  transition:all .2s;
+}
+.nav-links a:hover{background:var(--blue-50);color:var(--blue-700)}
+.nav-cta{
+  padding:9px 22px;border-radius:8px;
+  background:var(--blue-700);color:var(--white)!important;
+  font-weight:600!important;font-size:14px;
+  transition:all .2s!important;box-shadow:var(--shadow-sm);
+}
+.nav-cta:hover{background:var(--blue-800)!important;transform:translateY(-1px);box-shadow:var(--shadow)!important}
+.ham-btn{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px}
+.ham-btn span{display:block;width:22px;height:2px;background:var(--blue-900);border-radius:1px;transition:all .3s}
+
+/* ── MOBILE NAV ── */
+.mobile-nav{
+  display:none;position:fixed;inset:68px 0 0;
+  background:var(--white);z-index:99;
+  flex-direction:column;padding:24px;gap:8px;
+  border-top:1px solid var(--blue-100);
+  box-shadow:var(--shadow-lg);
+}
+.mobile-nav.open{display:flex}
+.mobile-nav a{
+  padding:14px 18px;border-radius:10px;
+  font-size:16px;font-weight:500;
+  color:var(--gray-800);text-decoration:none;
+  border:1px solid var(--gray-100);
+  transition:all .2s;
+}
+.mobile-nav a:hover{background:var(--blue-50);color:var(--blue-700);border-color:var(--blue-200)}
+.mobile-nav .nav-cta{background:var(--blue-700);color:var(--white)!important;border-color:var(--blue-700);text-align:center}
+
+/* ── HERO ── */
+.hero{
+  min-height:calc(100vh - 68px);
+  background:linear-gradient(135deg, var(--blue-50) 0%, var(--white) 50%, var(--blue-100) 100%);
+  display:flex;align-items:center;
+  padding:80px clamp(20px,5vw,64px);
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;
+  width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(circle,var(--blue-200) 0%,transparent 70%);
+  right:-200px;top:-200px;opacity:.5;
+}
+.hero::after{
+  content:'';position:absolute;
+  width:400px;height:400px;border-radius:50%;
+  background:radial-gradient(circle,var(--blue-100) 0%,transparent 70%);
+  left:-100px;bottom:-100px;opacity:.4;
+}
+.hero-inner{
+  max-width:1100px;margin:0 auto;width:100%;
+  display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;
+  position:relative;z-index:1;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:6px 16px;border-radius:100px;
+  background:var(--blue-100);color:var(--blue-700);
+  font-size:13px;font-weight:600;font-family:'Space Mono',monospace;
+  border:1px solid var(--blue-200);
+  margin-bottom:20px;width:fit-content;
+}
+.hero-badge::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--blue-600);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.6;transform:scale(.9)}}
+.hero-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(36px,5vw,58px);
+  font-weight:900;line-height:1.1;
+  color:var(--blue-900);
+  letter-spacing:-1px;
+  margin-bottom:8px;
+}
+.hero-title em{font-style:italic;color:var(--blue-700)}
+.hero-subtitle{
+  font-size:clamp(16px,2vw,20px);
+  color:var(--gray-600);font-weight:400;
+  margin-bottom:24px;line-height:1.5;
+}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:40px}
+.btn-primary{
+  padding:13px 28px;border-radius:10px;
+  background:var(--blue-700);color:var(--white);
+  font-size:15px;font-weight:600;text-decoration:none;
+  transition:all .25s;box-shadow:var(--shadow);
+  display:inline-flex;align-items:center;gap:8px;
+  border:none;cursor:pointer;
+}
+.btn-primary:hover{background:var(--blue-800);transform:translateY(-2px);box-shadow:var(--shadow-lg)}
+.btn-secondary{
+  padding:13px 28px;border-radius:10px;
+  background:var(--white);color:var(--blue-700);
+  font-size:15px;font-weight:600;text-decoration:none;
+  border:2px solid var(--blue-200);transition:all .25s;
+  display:inline-flex;align-items:center;gap:8px;
+}
+.btn-secondary:hover{border-color:var(--blue-500);background:var(--blue-50);transform:translateY(-2px)}
+.hero-stats{display:flex;gap:28px}
+.stat{display:flex;flex-direction:column}
+.stat-num{font-family:'Playfair Display',serif;font-size:28px;font-weight:900;color:var(--blue-700)}
+.stat-label{font-size:12px;color:var(--gray-400);font-family:'Space Mono',monospace;letter-spacing:.5px}
+.hero-img-wrap{
+  display:flex;justify-content:center;align-items:center;
+  position:relative;
+}
+.hero-img-card{
+  width:100%;max-width:380px;
+  background:var(--white);
+  border-radius:24px;
+  padding:32px;
+  box-shadow:var(--shadow-lg);
+  border:1px solid var(--blue-100);
+  position:relative;
+}
+.hero-avatar{
+  width:120px;height:120px;border-radius:50%;
+  background:linear-gradient(135deg,var(--blue-200),var(--blue-500));
+  margin:0 auto 20px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:48px;border:4px solid var(--white);
+  box-shadow:var(--shadow);
+}
+.hero-card-name{
+  font-family:'Playfair Display',serif;
+  font-size:22px;font-weight:700;
+  text-align:center;color:var(--blue-900);margin-bottom:4px;
+}
+.hero-card-role{
+  text-align:center;font-size:13px;
+  color:var(--gray-400);font-family:'Space Mono',monospace;
+  margin-bottom:20px;
+}
+.skill-tags{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:20px}
+.tag{
+  padding:5px 14px;border-radius:100px;
+  font-size:12px;font-family:'Space Mono',monospace;
+  background:var(--blue-50);color:var(--blue-700);
+  border:1px solid var(--blue-200);
+}
+.social-row{display:flex;gap:10px;justify-content:center}
+.soc-btn{
+  width:40px;height:40px;border-radius:10px;
+  background:var(--blue-50);border:1px solid var(--blue-100);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--blue-700);font-size:14px;font-weight:700;
+  text-decoration:none;transition:all .2s;
+  font-family:'Space Mono',monospace;
+}
+.soc-btn:hover{background:var(--blue-700);color:var(--white);border-color:var(--blue-700);transform:translateY(-2px)}
+
+/* ── SECTIONS ── */
+.section{padding:80px clamp(20px,5vw,64px)}
+.section-inner{max-width:1100px;margin:0 auto}
+.section-alt{background:var(--blue-50)}
+.section-label{
+  display:inline-block;font-family:'Space Mono',monospace;
+  font-size:11px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--blue-600);background:var(--blue-100);
+  padding:5px 14px;border-radius:100px;border:1px solid var(--blue-200);
+  margin-bottom:14px;
+}
+.section-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(28px,4vw,40px);
+  font-weight:900;color:var(--blue-900);
+  letter-spacing:-.5px;margin-bottom:8px;
+}
+.section-desc{color:var(--gray-600);font-size:16px;max-width:520px;line-height:1.7}
+
+/* ── ABOUT ── */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin-top:48px}
+.about-text p{color:var(--gray-600);line-height:1.8;margin-bottom:16px;font-size:16px}
+.about-skills{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+.about-img{
+  background:linear-gradient(135deg,var(--blue-100),var(--blue-200));
+  border-radius:20px;height:340px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:72px;border:1px solid var(--blue-200);
+  box-shadow:var(--shadow);position:relative;overflow:hidden;
+}
+.about-img::after{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.4),transparent 60%);
+}
+
+/* ── PROJECTS ── */
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-top:48px}
+.proj-card{
+  border-radius:var(--r);overflow:hidden;
+  background:var(--white);border:1px solid var(--blue-100);
+  box-shadow:var(--shadow-sm);
+  transition:all .3s;
+}
+.proj-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:var(--blue-200)}
+.proj-img{
+  height:180px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:48px;
+  position:relative;
+}
+.proj-img-1{background:linear-gradient(135deg,#dbeafe,#bfdbfe)}
+.proj-img-2{background:linear-gradient(135deg,#e0f2fe,#bae6fd)}
+.proj-img-3{background:linear-gradient(135deg,#ede9fe,#ddd6fe)}
+.proj-body{padding:22px}
+.proj-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--blue-900);margin-bottom:8px}
+.proj-desc{font-size:14px;color:var(--gray-600);line-height:1.6;margin-bottom:16px}
+.proj-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.proj-tag{padding:3px 10px;border-radius:6px;font-size:11px;font-family:'Space Mono',monospace;background:var(--blue-50);color:var(--blue-700);border:1px solid var(--blue-100)}
+.proj-links{display:flex;gap:10px}
+.proj-link{
+  padding:7px 16px;border-radius:8px;font-size:13px;font-weight:600;
+  text-decoration:none;transition:all .2s;font-family:'Space Mono',monospace;
+}
+.proj-link-gh{background:var(--gray-800);color:var(--white)}
+.proj-link-gh:hover{background:var(--gray-600)}
+.proj-link-live{background:var(--blue-700);color:var(--white)}
+.proj-link-live:hover{background:var(--blue-800)}
+
+/* ── TESTIMONIALS ── */
+.test-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:48px}
+.test-card{
+  background:var(--white);border-radius:var(--r);
+  padding:28px;border:1px solid var(--blue-100);
+  box-shadow:var(--shadow-sm);transition:all .3s;
+  position:relative;
+}
+.test-card:hover{box-shadow:var(--shadow);transform:translateY(-3px)}
+.test-card::before{
+  content:'"';
+  font-family:'Playfair Display',serif;
+  font-size:80px;color:var(--blue-100);
+  position:absolute;top:8px;right:20px;
+  line-height:1;
+}
+.stars{display:flex;gap:4px;margin-bottom:14px}
+.star{width:15px;height:15px;background:var(--blue-500);clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
+.test-text{color:var(--gray-600);line-height:1.7;font-size:15px;margin-bottom:20px;font-style:italic}
+.test-person{display:flex;align-items:center;gap:12px}
+.test-avatar{
+  width:46px;height:46px;border-radius:50%;
+  background:linear-gradient(135deg,var(--blue-200),var(--blue-500));
+  display:flex;align-items:center;justify-content:center;
+  font-weight:700;color:var(--white);font-size:16px;
+  border:2px solid var(--white);box-shadow:var(--shadow-sm);
+  flex-shrink:0;
+}
+.test-name{font-weight:600;color:var(--blue-900);font-size:15px}
+.test-role{font-size:12px;color:var(--gray-400);font-family:'Space Mono',monospace}
+
+/* ── EXPERIENCE ── */
+.exp-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:48px}
+.exp-col-title{
+  display:flex;align-items:center;gap:12px;margin-bottom:28px;
+  font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--blue-900);
+}
+.exp-icon{
+  width:40px;height:40px;border-radius:10px;
+  background:var(--blue-100);
+  display:flex;align-items:center;justify-content:center;font-size:20px;
+}
+.timeline{display:flex;gap:20px;flex-direction:column}
+.tl-item{display:flex;gap:16px}
+.tl-left{display:flex;flex-direction:column;align-items:center;flex-shrink:0;padding-top:4px}
+.tl-dot{width:14px;height:14px;border-radius:50%;border:3px solid var(--blue-500);background:var(--white);flex-shrink:0}
+.tl-line{width:2px;background:var(--blue-200);flex:1;min-height:40px;margin-top:4px}
+.tl-card{
+  flex:1;padding:16px 20px;border-radius:12px;
+  background:var(--blue-50);border:1px solid var(--blue-100);
+  border-left:3px solid var(--blue-500);
+  margin-bottom:4px;
+}
+.tl-period{font-size:11px;font-family:'Space Mono',monospace;color:var(--blue-600);margin-bottom:6px}
+.tl-title{font-weight:600;color:var(--blue-900);font-size:15px;margin-bottom:4px}
+.tl-place{font-size:13px;color:var(--gray-600)}
+
+/* ── CONTACT ── */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-top:48px;align-items:start}
+.form-group{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.form-label{font-size:13px;font-weight:600;color:var(--blue-900)}
+.form-input{
+  padding:13px 16px;border-radius:10px;
+  border:2px solid var(--blue-100);background:var(--blue-50);
+  font-size:15px;color:var(--gray-800);font-family:'DM Sans',sans-serif;
+  transition:all .2s;outline:none;width:100%;
+}
+.form-input:focus{border-color:var(--blue-500);background:var(--white);box-shadow:0 0 0 3px rgba(96,165,250,.15)}
+textarea.form-input{resize:vertical;min-height:120px}
+.contact-info{display:flex;flex-direction:column;gap:16px}
+.contact-card{
+  display:flex;align-items:center;gap:16px;
+  padding:18px 20px;border-radius:12px;
+  background:var(--white);border:1px solid var(--blue-100);
+  box-shadow:var(--shadow-sm);transition:all .2s;
+  text-decoration:none;
+}
+.contact-card:hover{border-color:var(--blue-200);box-shadow:var(--shadow);transform:translateX(4px)}
+.contact-card-icon{
+  width:44px;height:44px;border-radius:10px;
+  background:var(--blue-100);display:flex;align-items:center;justify-content:center;
+  font-size:20px;flex-shrink:0;
+}
+.contact-card-label{font-size:11px;font-family:'Space Mono',monospace;color:var(--gray-400);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px}
+.contact-card-value{font-weight:600;color:var(--blue-900);font-size:15px}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--blue-900);color:var(--white);
+  padding:40px clamp(20px,5vw,64px);
+}
+.footer-inner{
+  max-width:1100px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;
+}
+.footer-logo{font-family:'Playfair Display',serif;font-size:20px;font-weight:900;color:var(--white)}
+.footer-logo span{color:var(--blue-400)}
+.footer-copy{font-size:13px;color:rgba(255,255,255,.4);font-family:'Space Mono',monospace}
+.footer-socials{display:flex;gap:10px}
+.footer-soc{
+  width:38px;height:38px;border-radius:8px;
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);
+  display:flex;align-items:center;justify-content:center;
+  color:rgba(255,255,255,.7);font-size:13px;font-weight:700;
+  text-decoration:none;transition:all .2s;font-family:'Space Mono',monospace;
+}
+.footer-soc:hover{background:var(--blue-700);color:var(--white);border-color:var(--blue-600)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+  .nav-links{display:none}
+  .ham-btn{display:flex}
+
+  .hero-inner{grid-template-columns:1fr;gap:40px;text-align:center}
+  .hero-img-wrap{order:-1}
+  .hero-badge{margin:0 auto 20px}
+  .hero-btns{justify-content:center}
+  .hero-stats{justify-content:center}
+  .hero-img-card{max-width:300px}
+
+  .about-grid{grid-template-columns:1fr}
+  .about-img{height:200px}
+
+  .exp-grid{grid-template-columns:1fr}
+
+  .contact-grid{grid-template-columns:1fr}
+
+  .footer-inner{flex-direction:column;text-align:center}
+  .footer-socials{justify-content:center}
+}
+
+@media(max-width:480px){
+  .hero-stats{gap:16px}
+  .stat-num{font-size:22px}
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.hero-inner>*{animation:fadeUp .7s ease both}
+.hero-inner>*:nth-child(2){animation-delay:.15s}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="nav-logo">Bryan<span>.</span></div>
+  <div class="nav-links">
+    <a href="#sobre-mi">Sobre mí</a>
+    <a href="#proyectos">Proyectos</a>
+    <a href="#testimonios">Testimonios</a>
+    <a href="#experiencia">Experiencia</a>
+    <a href="#contacto" class="nav-cta">Contacto</a>
+  </div>
+  <div class="ham-btn" onclick="toggleMenu()" id="ham" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="mobile-nav" id="mobile-nav">
+  <a href="#sobre-mi" onclick="toggleMenu()">Sobre mí</a>
+  <a href="#proyectos" onclick="toggleMenu()">Proyectos</a>
+  <a href="#testimonios" onclick="toggleMenu()">Testimonios</a>
+  <a href="#experiencia" onclick="toggleMenu()">Experiencia</a>
+  <a href="#contacto" class="nav-cta" onclick="toggleMenu()">Contacto</a>
+</div>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge">👋 Disponible para proyectos</div>
+      <h1 class="hero-title">Bryan A.<br><em>Ramírez</em></h1>
+      <p class="hero-subtitle">Desarrollador web apasionado por crear experiencias digitales que combinan diseño y funcionalidad.</p>
+      <div class="hero-btns">
+        <a href="#proyectos" class="btn-primary">Ver proyectos →</a>
+        <a href="#" class="btn-secondary">⬇ Descargar CV</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-num">3+</span>
+          <span class="stat-label">Años exp.</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">12+</span>
+          <span class="stat-label">Proyectos</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">8+</span>
+          <span class="stat-label">Clientes</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-img-wrap">
+      <div class="hero-img-card">
+        <div class="hero-avatar">👨‍💻</div>
+        <div class="hero-card-name">Bryan A. Ramírez</div>
+        <div class="hero-card-role">Frontend Developer · UX Enthusiast</div>
+        <div class="skill-tags">
+          <span class="tag">React</span>
+          <span class="tag">Next.js</span>
+          <span class="tag">Tailwind</span>
+          <span class="tag">Git</span>
+          <span class="tag">Figma</span>
+        </div>
+        <div class="social-row">
+          <a href="https://github.com/vxillaxl" target="_blank" class="soc-btn">GH</a>
+          <a href="https://www.linkedin.com/in/alex-ramirez-86071b3b6" target="_blank" class="soc-btn">in</a>
+          <a href="mailto:vxillaxl4@gmail.com" class="soc-btn">✉</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SOBRE MÍ ── -->
+<section class="section" id="sobre-mi">
+  <div class="section-inner">
+    <span class="section-label">01 · Sobre mí</span>
+    <h2 class="section-title">¿Quién soy?</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>Soy un desarrollador web con pasión por construir productos digitales que sean bonitos, funcionales y accesibles. Me especializo en el frontend, pero tengo experiencia sólida en el stack completo.</p>
+        <p>Me gusta trabajar en proyectos donde el diseño y la tecnología se encuentran — donde cada pixel y cada línea de código importa. Trabajo con metodologías ágiles y siempre busco las mejores prácticas.</p>
+        <p>Cuando no estoy programando, aprendo sobre diseño UI/UX, contribuyo a proyectos open source y busco nuevos retos que me hagan crecer.</p>
+        <div class="about-skills">
+          <span class="tag">React / Next.js</span>
+          <span class="tag">TypeScript</span>
+          <span class="tag">Tailwind CSS</span>
+          <span class="tag">Node.js</span>
+          <span class="tag">Git & GitHub</span>
+          <span class="tag">Figma</span>
+          <span class="tag">REST APIs</span>
+        </div>
+      </div>
+      <div class="about-img">🧑‍💻</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROYECTOS ── -->
+<section class="section section-alt" id="proyectos">
+  <div class="section-inner">
+    <span class="section-label">02 · Proyectos</span>
+    <h2 class="section-title">Mis proyectos</h2>
+    <p class="section-desc">Una selección de los proyectos que mejor representan mi trabajo y habilidades técnicas.</p>
+    <div class="projects-grid">
+      <div class="proj-card">
+        <div class="proj-img proj-img-1">🛒</div>
+        <div class="proj-body">
+          <div class="proj-title">Checkout · Lab 3</div>
+          <p class="proj-desc">Recreación de una card de checkout con Next.js y TypeScript. Laboratorio de diseño de interfaces, UCC.</p>
+          <div class="proj-tags">
+            <span class="proj-tag">Next.js</span>
+            <span class="proj-tag">TypeScript</span>
+            <span class="proj-tag">Tailwind</span>
+          </div>
+          <div class="proj-links">
+            <a href="https://github.com/vxillaxl/CHECKOUT" class="proj-link proj-link-gh">GitHub</a>
+            <a href="#" class="proj-link proj-link-live">Demo ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-img proj-img-2">🎨</div>
+        <div class="proj-body">
+          <div class="proj-title">Card de Producto · Lab 2</div>
+          <p class="proj-desc">Recreación de una card de producto de e-commerce con imagen, precio, rating y botón de compra. Ejercicio de maquetación con CSS.</p>
+          <div class="proj-tags">
+            <span class="proj-tag">HTML</span>
+            <span class="proj-tag">CSS</span>
+            <span class="proj-tag">Flexbox</span>
+          </div>
+          <div class="proj-links">
+            <a href="#" class="proj-link proj-link-gh">GitHub</a>
+            <a href="#" class="proj-link proj-link-live">Demo ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-img proj-img-3">📱</div>
+        <div class="proj-body">
+          <div class="proj-title">Landing Page · Lab 1</div>
+          <p class="proj-desc">Página de inicio responsiva con navbar, sección hero y footer. Primer laboratorio de diseño de interfaces del semestre.</p>
+          <div class="proj-tags">
+            <span class="proj-tag">HTML</span>
+            <span class="proj-tag">CSS</span>
+            <span class="proj-tag">Responsive</span>
+          </div>
+          <div class="proj-links">
+            <a href="#" class="proj-link proj-link-gh">GitHub</a>
+            <a href="#" class="proj-link proj-link-live">Demo ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIOS ── -->
+<section class="section" id="testimonios">
+  <div class="section-inner">
+    <span class="section-label">03 · Testimonios</span>
+    <h2 class="section-title">Lo que dicen de mí</h2>
+    <p class="section-desc">Opiniones de clientes y colaboradores con quienes he tenido el gusto de trabajar.</p>
+    <div class="test-grid">
+      <div class="test-card">
+        <div class="stars">
+          <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
+        </div>
+        <p class="test-text">"Bryan entregó el proyecto antes de lo esperado y con una calidad excepcional. Su atención al detalle y comunicación constante hicieron todo más fácil."</p>
+        <div class="test-person">
+          <div class="test-avatar">CR</div>
+          <div>
+            <div class="test-name">Carlos Ruiz</div>
+            <div class="test-role">CEO · StartupCo</div>
+          </div>
+        </div>
+      </div>
+      <div class="test-card">
+        <div class="stars">
+          <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
+        </div>
+        <p class="test-text">"Trabajar con Bryan fue una experiencia muy positiva. Entiende rápido los requerimientos y propone soluciones creativas que superan las expectativas."</p>
+        <div class="test-person">
+          <div class="test-avatar">ML</div>
+          <div>
+            <div class="test-name">María López</div>
+            <div class="test-role">Product Manager · TechCorp</div>
+          </div>
+        </div>
+      </div>
+      <div class="test-card">
+        <div class="stars">
+          <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
+        </div>
+        <p class="test-text">"Muy profesional, puntual y con excelente criterio de diseño. El resultado final fue exactamente lo que necesitábamos y más."</p>
+        <div class="test-person">
+          <div class="test-avatar">AP</div>
+          <div>
+            <div class="test-name">Andrés Pérez</div>
+            <div class="test-role">Freelance Designer</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── EXPERIENCIA ── -->
+<section class="section section-alt" id="experiencia">
+  <div class="section-inner">
+    <span class="section-label">04 · Experiencia</span>
+    <h2 class="section-title">Mi trayectoria</h2>
+    <p class="section-desc">Mi recorrido académico y laboral que me ha formado como desarrollador.</p>
+    <div class="exp-grid">
+      <!-- Académica -->
+      <div>
+        <div class="exp-col-title">
+          <div class="exp-icon">🎓</div>
+          Académica
+        </div>
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-left">
+              <div class="tl-dot"></div>
+              <div class="tl-line"></div>
+            </div>
+            <div class="tl-card">
+              <div class="tl-period">En curso · 5to semestre</div>
+              <div class="tl-title">[Tu carrera]</div>
+              <div class="tl-place">Universidad Cooperativa de Colombia · Pasto</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-left">
+              <div class="tl-dot"></div>
+            </div>
+            <div class="tl-card">
+              <div class="tl-period">[Año inicio] – [Año fin]</div>
+              <div class="tl-title">[Otro estudio o curso]</div>
+              <div class="tl-place">[Institución]</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Laboral -->
+      <div>
+        <div class="exp-col-title">
+          <div class="exp-icon">💼</div>
+          Laboral
+        </div>
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-left">
+              <div class="tl-dot"></div>
+              <div class="tl-line"></div>
+            </div>
+            <div class="tl-card">
+              <div class="tl-period">[Fecha inicio] – Presente</div>
+              <div class="tl-title">[Cargo o rol]</div>
+              <div class="tl-place">[Empresa · Ciudad]</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-left">
+              <div class="tl-dot"></div>
+            </div>
+            <div class="tl-card">
+              <div class="tl-period">[Fecha inicio] – [Fecha fin]</div>
+              <div class="tl-title">[Cargo o rol]</div>
+              <div class="tl-place">[Empresa · Ciudad]</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACTO ── -->
+<section class="section" id="contacto">
+  <div class="section-inner">
+    <span class="section-label">05 · Contacto</span>
+    <h2 class="section-title">Hablemos 💬</h2>
+    <p class="section-desc">¿Tienes un proyecto en mente? Escríbeme y con gusto lo conversamos.</p>
+    <div class="contact-grid">
+      <div>
+        <div class="form-group">
+          <label class="form-label">Nombre completo</label>
+          <input type="text" class="form-input" placeholder="Tu nombre">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Correo electrónico</label>
+          <input type="email" class="form-input" placeholder="tu@email.com">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Asunto</label>
+          <input type="text" class="form-input" placeholder="¿De qué se trata?">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Mensaje</label>
+          <textarea class="form-input" placeholder="Cuéntame sobre tu proyecto..."></textarea>
+        </div>
+        <button class="btn-primary">Enviar mensaje →</button>
+      </div>
+      <div class="contact-info">
+        <p style="color:var(--gray-600);margin-bottom:8px;line-height:1.7">También puedes encontrarme en las siguientes plataformas o contactarme directamente:</p>
+        <a href="mailto:vxillaxl4@gmail.com" class="contact-card">
+          <div class="contact-card-icon">✉️</div>
+          <div>
+            <div class="contact-card-label">Email</div>
+            <div class="contact-card-value">vxillaxl4@gmail.com</div>
+          </div>
+        </a>
+        <a href="https://www.linkedin.com/in/alex-ramirez-86071b3b6" target="_blank" class="contact-card">
+          <div class="contact-card-icon" style="font-family:'Space Mono',monospace;font-weight:700;font-size:14px;color:var(--blue-700)">in</div>
+          <div>
+            <div class="contact-card-label">LinkedIn</div>
+            <div class="contact-card-value">Alex Ramírez</div>
+          </div>
+        </a>
+        <a href="https://github.com/vxillaxl" target="_blank" class="contact-card">
+          <div class="contact-card-icon" style="font-family:'Space Mono',monospace;font-weight:700;font-size:13px;color:var(--gray-800)">GH</div>
+          <div>
+            <div class="contact-card-label">GitHub</div>
+            <div class="contact-card-value">github.com/vxillaxl</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">Bryan<span>.</span></div>
+      <div class="footer-copy" style="margin-top:6px">© 2026 · Boceto de portafolio · Pasto, Colombia</div>
+    </div>
+    <div class="footer-socials">
+      <a href="https://github.com/vxillaxl" target="_blank" class="footer-soc">GH</a>
+      <a href="https://www.linkedin.com/in/alex-ramirez-86071b3b6" target="_blank" class="footer-soc">in</a>
+      <a href="mailto:vxillaxl4@gmail.com" class="footer-soc">✉</a>
+    </div>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+function toggleMenu(){
+  const nav=document.getElementById('mobile-nav');
+  const ham=document.getElementById('ham');
+  const open=nav.classList.toggle('open');
+  const spans=ham.querySelectorAll('span');
+  if(open){
+    spans[0].style.transform='rotate(45deg) translate(5px,5px)';
+    spans[1].style.opacity='0';
+    spans[2].style.transform='rotate(-45deg) translate(5px,-5px)';
+  } else {
+    spans.forEach(s=>{s.style.transform='';s.style.opacity=''});
+  }
+}
+
+// Cerrar menú al hacer clic fuera
+document.addEventListener('click',e=>{
+  const nav=document.getElementById('mobile-nav');
+  const ham=document.getElementById('ham');
+  if(nav.classList.contains('open')&&!nav.contains(e.target)&&!ham.contains(e.target)){
+    toggleMenu();
+  }
+});
+
+// Animación suave al hacer scroll
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.style.animation='fadeUp .6s ease both';
