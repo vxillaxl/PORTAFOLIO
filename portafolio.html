@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wireframe · Portafolio · Bryan A. Ramírez</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --cream:#faf8f5;
+  --white:#ffffff;
+  --ink:#1a1208;
+  --ink2:#4a3f2f;
+  --ink3:#8c7f6e;
+  --line:#e8e0d4;
+  --line2:#d4c9b8;
+  --blue:#2563eb;
+  --blue-light:#dbeafe;
+  --blue-mid:#93c5fd;
+  --teal:#0d9488;
+  --teal-light:#ccfbf1;
+  --amber:#f59e0b;
+  --amber-light:#fef3c7;
+  --rose:#e11d48;
+  --rose-light:#ffe4e6;
+  --ph:#ede8df;
+  --ph2:#ddd5c8;
+  --shadow:0 2px 12px rgba(26,18,8,.08);
+  --shadow-lg:0 8px 32px rgba(26,18,8,.12);
+  --r:10px;
+}
+
+body{
+  background:var(--cream);
+  color:var(--ink);
+  font-family:'DM Sans',sans-serif;
+  font-size:14px;
+  line-height:1.5;
+  min-height:100vh;
+}
+
+/* ── GRAIN texture overlay ── */
+body::after{
+  content:'';
+  position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:9999;opacity:.6;
+}
+
+/* ── HEADER ── */
+.hd{
+  position:sticky;top:0;z-index:100;
+  background:rgba(250,248,245,.92);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+  padding:0 48px;
+  display:flex;align-items:center;justify-content:space-between;
+  height:64px;
+}
+.hd-left{display:flex;align-items:center;gap:16px}
+.hd-logo{font-family:'Playfair Display',serif;font-size:20px;font-weight:900;color:var(--ink);letter-spacing:-.5px}
+.hd-sep{width:1px;height:24px;background:var(--line2)}
+.hd-sub{font-size:11px;color:var(--ink3);letter-spacing:1.5px;text-transform:uppercase;font-family:'Space Mono',monospace}
+.hd-right{display:flex;align-items:center;gap:12px}
+.badge{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:100px;font-size:11px;font-family:'Space Mono',monospace;letter-spacing:.5px}
+.badge-blue{background:var(--blue-light);color:var(--blue);border:1px solid var(--blue-mid)}
+.badge-amber{background:var(--amber-light);color:#92400e;border:1px solid #fcd34d}
+.dot{width:6px;height:6px;border-radius:50%;background:currentColor;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+
+/* ── TABS ── */
+.tabs-bar{
+  background:var(--white);
+  border-bottom:1px solid var(--line);
+  padding:0 48px;
+  display:flex;gap:0;
+  position:sticky;top:64px;z-index:99;
+  box-shadow:var(--shadow);
+}
+.tab-btn{
+  padding:16px 28px;
+  font-size:13px;font-family:'Space Mono',monospace;
+  color:var(--ink3);cursor:pointer;
+  border-bottom:2px solid transparent;
+  transition:all .25s;letter-spacing:.5px;
+  display:flex;align-items:center;gap:8px;
+}
+.tab-btn.on{color:var(--blue);border-bottom-color:var(--blue);background:var(--blue-light)}
+.tab-btn:hover:not(.on){color:var(--ink2);background:var(--cream)}
+
+/* ── CANVAS ── */
+.cv{display:none;padding:48px;max-width:1080px;margin:0 auto;flex-direction:column;gap:40px}
+.cv.on{display:flex}
+
+/* ── SECTION ── */
+.sec{display:flex;flex-direction:column;gap:12px}
+.sec-head{
+  display:flex;align-items:center;gap:14px;
+  padding-bottom:12px;
+  border-bottom:2px solid var(--line);
+}
+.sec-n{
+  font-family:'Playfair Display',serif;font-size:13px;font-style:italic;
+  color:var(--white);background:var(--ink);
+  width:28px;height:28px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.sec-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--ink);letter-spacing:-.3px}
+.sec-tag{margin-left:auto;font-size:10px;font-family:'Space Mono',monospace;color:var(--ink3);letter-spacing:1px;background:var(--ph);padding:4px 10px;border-radius:4px}
+
+/* ── WIREFRAME CARD ── */
+.wc{
+  background:var(--white);
+  border:1.5px solid var(--line);
+  border-radius:var(--r);
+  position:relative;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+  transition:box-shadow .25s;
+}
+.wc:hover{box-shadow:var(--shadow-lg)}
+.wc-label{
+  position:absolute;top:12px;right:12px;
+  font-size:9px;font-family:'Space Mono',monospace;
+  color:var(--ink3);background:var(--ph);
+  padding:3px 8px;border-radius:4px;letter-spacing:1px;
+}
+
+/* ── PLACEHOLDER blocks ── */
+.b{background:var(--ph);border-radius:4px}
+.b-sm{height:8px}
+.b-md{height:14px}
+.b-lg{height:20px}
+.b-xl{height:32px}
+.b-img{
+  background:var(--ph);border:2px dashed var(--ph2);
+  border-radius:8px;display:flex;align-items:center;justify-content:center;
+  color:var(--ink3);font-size:11px;font-family:'Space Mono',monospace;
+  position:relative;overflow:hidden;
+}
+.b-img::before{
+  content:'';position:absolute;inset:0;
+  background:repeating-linear-gradient(45deg,transparent,transparent 8px,var(--line) 8px,var(--line) 9px);
+  opacity:.4;
+}
+.b-img span{position:relative;z-index:1;background:var(--white);padding:4px 10px;border-radius:4px;font-size:10px}
+.btn-ph{
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  padding:10px 22px;border-radius:8px;
+  font-size:12px;font-family:'Space Mono',monospace;
+  cursor:default;border:1.5px solid;white-space:nowrap;
+  transition:transform .15s;
+}
+.btn-ph:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--ink);color:var(--white);border-color:var(--ink)}
+.btn-sec{background:var(--white);color:var(--ink2);border-color:var(--line2)}
+.btn-blue{background:var(--blue-light);color:var(--blue);border-color:var(--blue-mid)}
+.chip{
+  display:inline-flex;align-items:center;
+  padding:4px 12px;border-radius:100px;
+  font-size:11px;font-family:'Space Mono',monospace;
+  background:var(--ph);color:var(--ink2);
+  border:1px solid var(--line2);
+}
+.icon-ph{
+  width:38px;height:38px;border-radius:8px;
+  background:var(--ph);border:1.5px solid var(--line2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:14px;flex-shrink:0;color:var(--ink2);
+}
+.divider{height:1px;background:var(--line);width:100%}
+
+/* ── ANNOTATION ── */
+.ann{
+  font-family:'Playfair Display',serif;font-style:italic;
+  font-size:12px;color:var(--amber);
+  display:flex;align-items:center;gap:6px;
+}
+.ann::before{content:'✦';font-size:10px}
+
+/* ── STAR ── */
+.star{width:13px;height:13px;background:var(--amber);clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);opacity:.8}
+
+/* ── TIMELINE dot ── */
+.tdot{width:12px;height:12px;border-radius:50%;border:2.5px solid var(--blue);background:var(--white);flex-shrink:0;margin-top:3px}
+.tline{width:2px;background:var(--line2);flex:1;margin-top:4px}
+
+/* ── MOBILE FRAME ── */
+.phone-frame{
+  max-width:375px;margin:0 auto;
+  border:3px solid var(--ink);border-radius:36px;
+  overflow:hidden;box-shadow:var(--shadow-lg),0 0 0 8px var(--line);
+  background:var(--white);
+}
+.phone-notch{
+  height:28px;background:var(--ink);
+  display:flex;align-items:center;justify-content:center;
+}
+.notch-pill{width:80px;height:6px;background:var(--ink2);border-radius:3px}
+
+/* ── NAV MOBILE ── */
+.mob-nav{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 20px;border-bottom:1px solid var(--line);
+  background:var(--white);
+}
+.ham span{display:block;width:22px;height:2px;background:var(--ink);border-radius:1px;margin:5px 0}
+
+/* ── SCROLL HINT ── */
+.scroll-hint{
+  text-align:center;padding:10px;
+  font-size:11px;color:var(--ink3);
+  font-family:'Space Mono',monospace;
+  background:var(--ph);border-top:1px dashed var(--line2);
+}
+
+/* ── PROGRESS BAR decorative ── */
+.prog-bar{height:3px;background:var(--line);border-radius:2px;overflow:hidden}
+.prog-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--blue),var(--teal))}
+
+/* ── FOOTER STRIP ── */
+.footer-strip{
+  background:var(--ink);color:var(--white);
+  padding:28px 40px;
+  display:flex;align-items:center;justify-content:space-between;
+  border-radius:0 0 var(--r) var(--r);
+}
+
+/* ── GRID HELPERS ── */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.col{display:flex;flex-direction:column;gap:10px}
+.row{display:flex;align-items:center;gap:10px}
+.row-wrap{display:flex;flex-wrap:wrap;gap:8px}
+
+/* ── CARD hover effect ── */
+.proj-card{
+  border:1.5px solid var(--line);border-radius:var(--r);
+  overflow:hidden;background:var(--white);
+  transition:all .25s;cursor:default;
+}
+.proj-card:hover{border-color:var(--blue-mid);box-shadow:0 4px 20px rgba(37,99,235,.12);transform:translateY(-2px)}
+.test-card{
+  border:1.5px solid var(--line);border-radius:var(--r);
+  padding:20px;background:var(--white);
+  display:flex;flex-direction:column;gap:12px;
+  transition:all .25s;
+}
+.test-card:hover{border-color:var(--line2);box-shadow:var(--shadow)}
+.avatar{width:42px;height:42px;border-radius:50%;background:var(--ph);border:2px dashed var(--ph2);display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--ink3);flex-shrink:0}
+
+/* ── RESPONSIVE hint bar ── */
+.hint-bar{
+  background:linear-gradient(135deg,var(--blue-light),var(--teal-light));
+  border:1px solid var(--blue-mid);border-radius:8px;
+  padding:10px 16px;
+  font-size:11px;color:var(--blue);
+  font-family:'Space Mono',monospace;
+  display:flex;align-items:center;gap:8px;
+}
+</style>
+</head>
+<body>
+
+<!-- ══ HEADER ══ -->
+<header class="hd">
+  <div class="hd-left">
+    <div class="hd-logo">Bryan A. Ramírez</div>
+    <div class="hd-sep"></div>
+    <div class="hd-sub">Wireframe · Portafolio</div>
+  </div>
+  <div class="hd-right">
+    <div class="badge badge-amber"><span class="dot"></span>Low-Fidelity</div>
+    <div class="badge badge-blue">Diseño de Interfaces · 2026</div>
+  </div>
+</header>
+
+<!-- ══ TABS ══ -->
+<div class="tabs-bar">
+  <div class="tab-btn on" onclick="sw('web')">🖥 &nbsp;Desktop</div>
+  <div class="tab-btn" onclick="sw('mob')">📱 &nbsp;Mobile</div>
+</div>
+
+<!-- ════════════════════════════
+     DESKTOP
+════════════════════════════ -->
+<div class="cv on" id="cv-web">
+
+  <!-- 1. NAVBAR -->
+  <div class="sec">
+    <div class="sec-head">
+      <div class="sec-n">1</div>
+      <div class="sec-title">Menú de Navegación</div>
+      <span class="sec-tag">position: sticky · top: 0</span>
+    </div>
+    <div class="wc">
+      <div class="wc-label">NAVBAR</div>
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:18px 28px">
+        <div class="col" style="gap:6px">
+          <div class="b b-lg" style="width:100px"></div>
+          <div class="b b-sm" style="width:64px;opacity:.5"></div>
+        </div>
+        <div class="row" style="gap:32px">
+          <div class="b b-md" style="width:52px"></div>
+          <div class="b b-md" style="width:52px"></div>
+          <div class="b b-md" style="width:52px"></div>
+          <div class="b b-md" style="width:52px"></div>
+          <div class="b b-md" style="width:52px"></div>
+        </div>
+        <div class="btn-ph btn-primary" style="font-size:11px;padding:8px 18px">Contacto</div>
+      </div>
+      <div class="prog-bar"><div class="prog-fill" style="width:12%"></div></div>
+    </div>
+    <div class="ann">Sticky — siempre visible al hacer scroll</div>
+  </div>
+
+  <!-- 2. HERO -->
+  <div class="sec">
+    <div class="sec-head">
+      <div class="sec-n">2</div>
+      <div class="sec-title">Hero / Bienvenida</div>
+      <span class="sec-tag">grid: 2 cols · con CV</span>
+    </div>
+    <div class="wc">
+      <div class="wc-label">HERO SECTION</div>
+      <div class="g2" style="padding:44px 32px;align-items:center">
+        <div class="col" style="gap:14px">
+          <div class="row-wrap">
+            <div class="chip">👋 Disponible para proyectos</div>
+          </div>
+          <div class="b b-xl" style="width:95%;height:44px"></div>
+          <div class="b b-xl" style="width:78%;height:44px"></div>
+          <div class="b b-md" style="width:100%;opacity:.6"></div>
+          <div class="b b-md" style="width:88%;opacity:.6"></div>
+          <div class="b b-md" style="width:65%;opacity:.6"></div>
+          <div class="row" style="gap:12px;margin-top:8px">
+            <div class="btn-ph btn-primary">Ver proyectos ↓</div>
+            <div class="btn-ph btn-sec">⬇ Descargar CV</div>
+          </div>
+          <div class="row" style="gap:8px;margin-top:4px">
+            <div class="icon-ph">GH</div>
+            <div class="icon-ph">in</div>
+            <div class="icon-ph">ig</div>
+          </div>
+        </div>
+        <div>
+          <div class="b-img" style="height:300px;border-radius:20px">
+            <span>foto / avatar</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. ACERCA DE MÍ -->
+  <div class="sec">
+    <div class="sec-head">
+      <div class="sec-n">3</div>
+      <div class="sec-title">Acerca de Mí</div>
+      <span class="sec-tag">grid: foto + texto</span>
+    </div>
+    <div class="wc">
+      <div class="wc-label">ABOUT</div>
+      <div style="display:grid;grid-template-columns:200px 1fr;gap:36px;padding:36px 32px;align-items:start">
+        <div class="col" style="gap:14px;align-items:center">
+          <div class="b-img" style="height:200px;width:200px;border-radius:50%"><span>foto</span></div>
+          <div class="row-wrap" style="justify-content:center;gap:6px">
+            <div class="chip" style="background:var(--blue-light);color:var(--blue);border-color:var(--blue-mid)">Next.js</div>
+            <div class="chip" style="background:var(--teal-light);color:var(--teal)">Tailwind</div>
+            <div class="chip">React</div>
+            <div class="chip">Git</div>
+            <div class="chip" style="background:var(--amber-light);color:#92400e">Figma</div>
+          </div>
+        </div>
+        <div class="col" style="gap:12px">
+          <div class="b b-xl" style="width:220px"></div>
+          <div class="b b-md" style="width:100%;opacity:.7"></div>
+          <div class="b b-md" style="width:95%;opacity:.7"></div>
+          <div class="b b-md" style="width:88%;opacity:.7"></div>
+          <div class="b b-md" style="width:72%;opacity:.7"></div>
+          <div class="divider" style="margin:8px 0"></div>
+          <div class="g4" style="gap:10px">
+            <div class="col" style="gap:5px;padding:12px;background:var(--ph);border-radius:8px;align-items:center">
+              <div class="b b-lg" style="width:40px"></div>
+              <div class="b b-sm" style="width:60px;opacity:.6"></div>
+            </div>
+            <div class="col" style="gap:5px;padding:12px;background:var(--blue-light);border-radius:8px;align-items:center">
+              <div class="b b-lg" style="width:40px;background:var(--blue-mid)"></div>
+              <div class="b b-sm" style="width:60px;opacity:.6;background:var(--blue-mid)"></div>
+            </div>
+            <div class="col" style="gap:5px;padding:12px;background:var(--teal-light);border-radius:8px;align-items:center">
+              <div class="b b-lg" style="width:40px;background:#5eead4"></div>
+              <div class="b b-sm" style="width:60px;opacity:.6;background:#5eead4"></div>
+            </div>
+            <div class="col" style="gap:5px;padding:12px;background:var(--amber-light);border-radius:8px;align-items:center">
+              <div class="b b-lg" style="width:40px;background:#fcd34d"></div>
+              <div class="b b-sm" style="width:60px;opacity:.6;background:#fcd34d"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. PROYECTOS -->
+  <div class="sec">
+    <div class="sec-head">
+      <div class="sec-n">4</div>
+      <div class="sec-title">Mis Proyectos</div>
+      <span class="sec-tag">grid-cols-3 · GitHub / Vercel / Demo</span>
+    </div>
+    <div class="wc" style="padding:32px">
+      <div class="wc-label">PROJECTS</div>
+      <div class="col" style="gap:20px">
+        <div class="row" style="justify-content:space-between">
+          <div class="b b-xl" style="width:180px"></div>
+          <div class="btn-ph btn-blue" style="font-size:11px;padding:7px 16px">Ver todos →</div>
+        </div>
+        <div class="g3">
+          <div class="proj-card">
+            <div class="b-img" style="height:140px;border-radius:0"><span>preview</span></div>
+            <div class="col" style="padding:16px;gap:8px">
+              <div class="b b-lg" style="width:80%"></div>
+              <div class="b b-sm" style="width:100%;opacity:.6"></div>
+              <div class="b b-sm" style="width:75%;opacity:.6"></div>
+              <div class="row-wrap" style="margin-top:4px;gap:6px">
+                <div class="chip" style="font-size:10px;padding:3px 10px">GitHub</div>
+                <div class="chip" style="font-size:10px;padding:3px 10px">Vercel</div>
+                <div class="chip" style="background:var(--blue-light);color:var(--blue);border-color:var(--blue-mid);font-size:10px;padding:3px 10px">Demo ↗</div>
+              </div>
+            </div>
+          </div>
+          <div class="proj-card">
+            <div class="b-img" style="height:140px;border-radius:0"><span>preview</span></div>
+            <div class="col" style="padding:16px;gap:8px">
+              <div class="b b-lg" style="width:70%"></div>
+              <div class="b b-sm" style="width:100%;opacity:.6"></div>
+              <div class="b b-sm" style="width:65%;opacity:.6"></div>
+              <div class="row-wrap" style="margin-top:4px;gap:6px">
+                <div class="chip" style="font-size:10px;padding:3px 10px">GitHub</div>
+                <div class="chip" style="font-size:10px;padding:3px 10px">Vercel</div>
+                <div class="chip" style="background:var(--blue-light);color:var(--blue);border-color:var(--blue-mid);font-size:10px;padding:3px 10px">Demo ↗</div>
+              </div>
+            </div>
+          </div>
+          <div class="proj-card">
+            <div class="b-img" style="height:140px;border-radius:0"><span>preview</span></div>
+            <div class="col" style="padding:16px;gap:8px">
+              <div class="b b-lg" style="width:85%"></div>
+              <div class="b b-sm" style="width:100%;opacity:.6"></div>
+              <div class="b b-sm" style="width:80%;opacity:.6"></div>
+              <div class="row-wrap" style="margin-top:4px;gap:6px">
+                <div class="chip" style="font-size:10px;padding:3px 10px">GitHub</div>
+                <div class="chip" style="font-size:10px;padding:3px 10px">Vercel</div>
+                <div class="chip" style="background:var(--blue-light);color:var(--blue);border-color:var(--blue-mid);font-size:10px;padding:3px 10px">Demo ↗</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. TESTIMONIOS -->
+  <div class="sec">
+    <div class="sec-head">
+      <div class="sec-n">5</div>
+      <div class="sec-title">Testimonios</div>
+      <span class="sec-tag">3 testimonios</span>
+    </div>
+    <div class="wc" style="padding:32px">
+      <div class="wc-label">TESTIMONIALS</div>
+      <div class="col" style="gap:20px">
+        <div class="b b-xl" style="width:200px"></div>
+        <div class="g3">
+          <div class="test-card">
+            <div class="row" style="gap:3px">${'<div class="star"></div>'.repeat(5)}</div>
+            <div class="b b-sm" style="width:100%;opacity:.7"></div>
+            <div class="b b-sm" style="width:90%;opacity:.7"></div>
+            <div class="b b-sm" style="width:75%;opacity:.7"></div>
+            <div class="row">
+              <div class="avatar">foto</div>
+              <div class="col" style="gap:5px"><div class="b b-md" style="width:90px"></div><div class="b b-sm" style="width:65px;opacity:.5"></div></div>
+            </div>
+          </div>
+          <div class="test-card">
+            <div class="row" style="gap:3px">${'<div class="star"></div>'.repeat(5)}</div>
+            <div class="b b-sm" style="width:100%;opacity:.7"></div>
+            <div class="b b-sm" style="width:85%;opacity:.7"></div>
+            <div class="b b-sm" style="width:70%;opacity:.7"></div>
+            <div class="row">
+              <div class="avatar">foto</div>
+              <div class="col" style="gap:5px"><div class="b b-md" style="width:90px"></div><div class="b b-sm" style="width:65px;opacity:.5"></div></div>
+            </div>
+          </div>
+          <div class="test-card">
+            <div class="row" style="gap:3px">${'<div class="star"></div>'.repeat(5)}</div>
+            <div class="b b-sm" style="width:100%;opacity:.7"></div>
+            <div class="b b-sm" style="width:95%;opacity:.7"></div>
+            <div class="b b-sm" style="width:60%;opacity:.7"></div>
+            <div class="row">
+              <div class="avatar">foto</div>
+              <div class="col" style="gap:5px"><div class="b b-md" style="width:90px"></div><div class="b b-sm" style="width:65px;opacity:.5"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. EXPERIENCIA -->
+  <div class="sec">
+    <div class="sec-head">
+      <div class="sec-n">6</div>
+      <div class="sec-title">Experiencia Académica y Laboral</div>
+      <span class="sec-tag">timeline · 2 columnas</span>
+    </div>
+    <div class="wc" style="padding:32px">
+      <div class="wc-label">EXPERIENCE</div>
+      <div class="g2" style="gap:40px">
+        <!-- Académica -->
+        <div class="col" style="gap:20px">
+          <div class="row" style="gap:10px">
+            <div style="width:32px;height:32px;border-radius:8px;background:var(--blue-light);display:flex;align-items:center;justify-content:center;font-size:16px">🎓</div>
+            <div class="b b-lg" style="width:120px;background:var(--blue-mid)"></div>
+          </div>
+          <div style="display:flex;gap:16px">
+            <div style="display:flex;flex-direction:column;align-items:center">
+              <div class="tdot"></div>
+              <div class="tline" style="min-height:60px"></div>
+              <div class="tdot"></div>
+              <div class="tline" style="min-height:60px"></div>
+            </div>
+            <div class="col" style="gap:28px;flex:1">
+              <div class="col" style="gap:7px;padding:14px;background:var(--blue-light);border-radius:8px;border-left:3px solid var(--blue)">
+                <div class="b b-md" style="width:85%;background:var(--blue-mid)"></div>
+                <div class="b b-sm" style="width:55%;opacity:.6;background:var(--blue-mid)"></div>
+                <div class="b b-sm" style="width:100%;opacity:.5;background:var(--blue-mid)"></div>
+              </div>
+              <div class="col" style="gap:7px;padding:14px;background:var(--ph);border-radius:8px;border-left:3px solid var(--line2)">
+                <div class="b b-md" style="width:75%"></div>
+                <div class="b b-sm" style="width:50%;opacity:.6"></div>
+                <div class="b b-sm" style="width:90%;opacity:.5"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Laboral -->
+        <div class="col" style="gap:20px">
+          <div class="row" style="gap:10px">
+            <div style="width:32px;height:32px;border-radius:8px;background:var(--teal-light);display:flex;align-items:center;justify-content:center;font-size:16px">💼</div>
+            <div class="b b-lg" style="width:100px;background:#5eead4"></div>
+          </div>
+          <div style="display:flex;gap:16px">
+            <div style="display:flex;flex-direction:column;align-items:center">
+              <div class="tdot" style="border-color:var(--teal)"></div>
+              <div class="tline" style="min-height:60px"></div>
+              <div class="tdot" style="border-color:var(--teal)"></div>
+            </div>
+            <div class="col" style="gap:28px;flex:1">
+              <div class="col" style="gap:7px;padding:14px;background:var(--teal-light);border-radius:8px;border-left:3px solid var(--teal)">
+                <div class="b b-md" style="width:80%;background:#5eead4"></div>
+                <div class="b b-sm" style="width:55%;opacity:.6;background:#5eead4"></div>
+                <div class="b b-sm" style="width:95%;opacity:.5;background:#5eead4"></div>
+              </div>
+              <div class="col" style="gap:7px;padding:14px;background:var(--ph);border-radius:8px;border-left:3px solid var(--line2)">
+                <div class="b b-md" style="width:70%"></div>
+                <div class="b b-sm" style="width:50%;opacity:.6"></div>
+                <div class="b b-sm" style="width:85%;opacity:.5"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. CONTACTO -->
+  <div class="sec">
+    <div class="sec-head">
+      <div class="sec-n">7</div>
+      <div class="sec-title">Contactos</div>
+      <span class="sec-tag">formulario + redes</span>
+    </div>
+    <div class="wc" style="padding:32px">
+      <div class="wc-label">CONTACT</div>
+      <div class="g2" style="gap:40px">
+        <div class="col" style="gap:12px">
+          <div class="b b-xl" style="width:160px"></div>
+          <div class="b b-md" style="width:100%;opacity:.6"></div>
+          <div style="border:1.5px solid var(--line2);border-radius:8px;padding:12px 14px;background:var(--ph);font-size:11px;color:var(--ink3);font-family:'Space Mono',monospace">Nombre completo</div>
+          <div style="border:1.5px solid var(--line2);border-radius:8px;padding:12px 14px;background:var(--ph);font-size:11px;color:var(--ink3);font-family:'Space Mono',monospace">Correo electrónico</div>
+          <div style="border:1.5px solid var(--line2);border-radius:8px;padding:12px 14px;background:var(--ph);font-size:11px;color:var(--ink3);font-family:'Space Mono',monospace">Asunto</div>
+          <div style="border:1.5px solid var(--line2);border-radius:8px;padding:12px 14px;background:var(--ph);height:90px;font-size:11px;color:var(--ink3);font-family:'Space Mono',monospace">Mensaje...</div>
+          <div class="btn-ph btn-primary" style="width:fit-content">Enviar mensaje →</div>
+        </div>
+        <div class="col" style="gap:18px;justify-content:center">
+          <div class="b b-lg" style="width:140px"></div>
+          <div class="row" style="gap:14px;padding:16px;background:var(--ph);border-radius:10px;border:1.5px solid var(--line2)">
+            <div class="icon-ph" style="background:var(--blue-light);border-color:var(--blue-mid);color:var(--blue)">✉</div>
+            <div class="col" style="gap:5px"><div class="b b-sm" style="width:50px;opacity:.5"></div><div class="b b-md" style="width:150px"></div></div>
+          </div>
+          <div class="row" style="gap:14px;padding:16px;background:var(--ph);border-radius:10px;border:1.5px solid var(--line2)">
+            <div class="icon-ph" style="background:var(--blue-light);border-color:var(--blue-mid);color:var(--blue)">in</div>
+            <div class="col" style="gap:5px"><div class="b b-sm" style="width:50px;opacity:.5"></div><div class="b b-md" style="width:130px"></div></div>
+          </div>
+          <div class="row" style="gap:14px;padding:16px;background:var(--ph);border-radius:10px;border:1.5px solid var(--line2)">
+            <div class="icon-ph" style="background:var(--ink);border-color:var(--ink2);color:var(--white)">GH</div>
+            <div class="col" style="gap:5px"><div class="b b-sm" style="width:50px;opacity:.5"></div><div class="b b-md" style="width:140px"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8. FOOTER -->
+  <div class="sec">
+    <div class="sec-head">
+      <div class="sec-n">8</div>
+      <div class="sec-title">Pie de Página</div>
+      <span class="sec-tag">footer</span>
+    </div>
+    <div class="wc">
+      <div class="wc-label">FOOTER</div>
+      <div class="footer-strip">
+        <div class="col" style="gap:6px">
+          <div class="b b-lg" style="width:100px;background:rgba(255,255,255,.2)"></div>
+          <div class="b b-sm" style="width:200px;opacity:.3;background:rgba(255,255,255,.2)"></div>
+        </div>
+        <div class="row" style="gap:10px">
+          <div class="icon-ph" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:white">GH</div>
+          <div class="icon-ph" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:white">in</div>
+          <div class="icon-ph" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:white">ig</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /cv-web -->
+
+<!-- ════════════════════════════
+     MOBILE
+════════════════════════════ -->
+<div class="cv" id="cv-mob">
+
+  <div class="hint-bar">
+    <span>📱</span> Vista móvil — 375px · iPhone style frame
+  </div>
+
+  <div class="phone-frame">
+    <div class="phone-notch"><div class="notch-pill"></div></div>
+
+    <!-- 1. NAV MOBILE -->
+    <div>
+      <div style="padding:8px 12px;background:var(--amber-light);border-bottom:1px solid #fcd34d;font-size:10px;text-align:center;color:#92400e;font-family:'Space Mono',monospace;letter-spacing:1px">① MENÚ DE NAVEGACIÓN</div>
+      <div class="mob-nav">
+        <div class="col" style="gap:4px"><div class="b b-lg" style="width:70px"></div><div class="b b-sm" style="width:44px;opacity:.5"></div></div>
+        <div class="ham"><span></span><span></span><span></span></div>
+      </div>
+    </div>
+
+    <!-- 2. HERO MOBILE -->
+    <div>
+      <div style="padding:8px 12px;background:var(--blue-light);border-bottom:1px solid var(--blue-mid);border-top:1px solid var(--line);font-size:10px;text-align:center;color:var(--blue);font-family:'Space Mono',monospace;letter-spacing:1px">② HERO / BIENVENIDA</div>
+      <div class="col" style="padding:28px 20px;gap:14px;align-items:center;text-align:center">
+        <div class="b-img" style="height:90px;width:90px;border-radius:50%"><span>foto</span></div>
+        <div class="chip" style="font-size:10px">👋 Disponible</div>
+        <div class="b b-xl" style="width:90%;height:28px"></div>
+        <div class="b b-md" style="width:70%;opacity:.7"></div>
+        <div class="b b-md" style="width:100%;opacity:.6"></div>
+        <div class="b b-md" style="width:80%;opacity:.6"></div>
+        <div class="row" style="gap:10px;justify-content:center;flex-wrap:wrap">
+          <div class="btn-ph btn-primary" style="font-size:11px;padding:9px 18px">Ver proyectos</div>
+          <div class="btn-ph btn-sec" style="font-size:11px;padding:9px 18px">⬇ CV</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. ABOUT MOBILE -->
+    <div style="border-top:1px solid var(--line)">
+      <div style="padding:8px 12px;background:var(--teal-light);border-bottom:1px solid #5eead4;font-size:10px;text-align:center;color:var(--teal);font-family:'Space Mono',monospace;letter-spacing:1px">③ ACERCA DE MÍ</div>
+      <div class="col" style="padding:24px 20px;gap:12px">
+        <div class="b b-xl" style="width:160px"></div>
+        <div class="b b-md" style="width:100%;opacity:.7"></div>
+        <div class="b b-md" style="width:90%;opacity:.7"></div>
+        <div class="b b-md" style="width:75%;opacity:.7"></div>
+        <div class="row-wrap" style="gap:6px;margin-top:4px">
+          <div class="chip" style="background:var(--blue-light);color:var(--blue);border-color:var(--blue-mid);font-size:10px">Next.js</div>
+          <div class="chip" style="background:var(--teal-light);color:var(--teal);font-size:10px">Tailwind</div>
+          <div class="chip" style="font-size:10px">React</div>
+          <div class="chip" style="font-size:10px">Git</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. PROYECTOS MOBILE -->
+    <div style="border-top:1px solid var(--line)">
+      <div style="padding:8px 12px;background:var(--ph);border-bottom:1px solid var(--line2);font-size:10px;text-align:center;color:var(--ink2);font-family:'Space Mono',monospace;letter-spacing:1px">④ MIS PROYECTOS</div>
+      <div class="col" style="padding:20px;gap:14px">
+        <div class="b b-xl" style="width:140px"></div>
+        <div class="proj-card">
+          <div class="b-img" style="height:110px;border-radius:0"><span>preview</span></div>
+          <div class="col" style="padding:12px;gap:8px">
+            <div class="b b-lg" style="width:75%"></div>
+            <div class="b b-sm" style="width:100%;opacity:.6"></div>
+            <div class="row-wrap" style="gap:6px;margin-top:2px">
+              <div class="chip" style="font-size:10px;padding:3px 8px">GitHub</div>
+              <div class="chip" style="font-size:10px;padding:3px 8px">Vercel</div>
+              <div class="chip" style="background:var(--blue-light);color:var(--blue);border-color:var(--blue-mid);font-size:10px;padding:3px 8px">Demo ↗</div>
+            </div>
+          </div>
+        </div>
+        <div class="scroll-hint">↓ scroll para ver más proyectos</div>
+      </div>
+    </div>
+
+    <!-- 5. TESTIMONIOS MOBILE -->
+    <div style="border-top:1px solid var(--line)">
+      <div style="padding:8px 12px;background:var(--amber-light);border-bottom:1px solid #fcd34d;font-size:10px;text-align:center;color:#92400e;font-family:'Space Mono',monospace;letter-spacing:1px">⑤ TESTIMONIOS</div>
+      <div class="col" style="padding:20px;gap:12px">
+        <div class="b b-xl" style="width:150px"></div>
+        <div class="test-card">
+          <div class="row" style="gap:3px"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+          <div class="b b-sm" style="width:100%;opacity:.7"></div>
+          <div class="b b-sm" style="width:80%;opacity:.7"></div>
+          <div class="row"><div class="avatar">foto</div><div class="col" style="gap:5px"><div class="b b-md" style="width:80px"></div><div class="b b-sm" style="width:60px;opacity:.5"></div></div></div>
+        </div>
+        <div class="scroll-hint">← → deslizar (3 testimonios)</div>
+      </div>
+    </div>
+
+    <!-- 6. EXPERIENCIA MOBILE -->
+    <div style="border-top:1px solid var(--line)">
+      <div style="padding:8px 12px;background:var(--blue-light);border-bottom:1px solid var(--blue-mid);font-size:10px;text-align:center;color:var(--blue);font-family:'Space Mono',monospace;letter-spacing:1px">⑥ EXPERIENCIA</div>
+      <div class="col" style="padding:20px;gap:12px">
+        <div class="b b-xl" style="width:200px"></div>
+        <div style="display:flex;gap:0;border:1.5px solid var(--line2);border-radius:8px;overflow:hidden">
+          <div style="flex:1;padding:10px;text-align:center;background:var(--blue-light);border-right:1px solid var(--blue-mid);font-size:11px;color:var(--blue);font-family:'Space Mono',monospace">🎓 Académica</div>
+          <div style="flex:1;padding:10px;text-align:center;font-size:11px;color:var(--ink3);font-family:'Space Mono',monospace">💼 Laboral</div>
+        </div>
+        <div style="display:flex;gap:14px">
+          <div style="display:flex;flex-direction:column;align-items:center"><div class="tdot"></div><div class="tline" style="min-height:52px"></div></div>
+          <div class="col" style="gap:6px;flex:1;padding:12px;background:var(--blue-light);border-radius:8px;border-left:3px solid var(--blue)">
+            <div class="b b-md" style="width:85%;background:var(--blue-mid)"></div>
+            <div class="b b-sm" style="width:55%;opacity:.6;background:var(--blue-mid)"></div>
+            <div class="b b-sm" style="width:95%;opacity:.5;background:var(--blue-mid)"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7. CONTACTO MOBILE -->
+    <div style="border-top:1px solid var(--line)">
+      <div style="padding:8px 12px;background:var(--teal-light);border-bottom:1px solid #5eead4;font-size:10px;text-align:center;color:var(--teal);font-family:'Space Mono',monospace;letter-spacing:1px">⑦ CONTACTO</div>
+      <div class="col" style="padding:20px;gap:10px">
+        <div class="b b-xl" style="width:130px"></div>
+        <div style="border:1.5px solid var(--line2);border-radius:8px;padding:11px 14px;background:var(--ph);font-size:11px;color:var(--ink3);font-family:'Space Mono',monospace">Nombre</div>
+        <div style="border:1.5px solid var(--line2);border-radius:8px;padding:11px 14px;background:var(--ph);font-size:11px;color:var(--ink3);font-family:'Space Mono',monospace">Correo</div>
+        <div style="border:1.5px solid var(--line2);border-radius:8px;padding:11px 14px;background:var(--ph);font-size:11px;color:var(--ink3);font-family:'Space Mono',monospace">Asunto</div>
+        <div style="border:1.5px solid var(--line2);border-radius:8px;padding:11px 14px;background:var(--ph);height:70px;font-size:11px;color:var(--ink3);font-family:'Space Mono',monospace">Mensaje...</div>
+        <div class="btn-ph btn-primary" style="width:100%;justify-content:center">Enviar mensaje →</div>
+        <div class="row" style="justify-content:center;gap:12px;margin-top:4px">
+          <div class="icon-ph" style="background:var(--blue-light);border-color:var(--blue-mid);color:var(--blue)">✉</div>
+          <div class="icon-ph" style="background:var(--blue-light);border-color:var(--blue-mid);color:var(--blue)">in</div>
+          <div class="icon-ph" style="background:var(--ink);border-color:var(--ink2);color:white">GH</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 8. FOOTER MOBILE -->
+    <div style="border-top:1px solid var(--line)">
+      <div style="padding:8px 12px;background:var(--ph);border-bottom:1px solid var(--line2);font-size:10px;text-align:center;color:var(--ink3);font-family:'Space Mono',monospace;letter-spacing:1px">⑧ PIE DE PÁGINA</div>
+      <div style="background:var(--ink);padding:20px;display:flex;flex-direction:column;align-items:center;gap:12px">
+        <div class="row" style="gap:10px">
+          <div class="icon-ph" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:white">GH</div>
+          <div class="icon-ph" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:white">in</div>
+          <div class="icon-ph" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:white">ig</div>
+        </div>
+        <div class="b b-sm" style="width:180px;opacity:.2;background:rgba(255,255,255,.3)"></div>
+      </div>
+    </div>
+
+  </div><!-- /phone-frame -->
+</div><!-- /cv-mob -->
+
+<script>
+function sw(t){
+  document.querySelectorAll('.tab-btn').forEach((el,i)=>el.classList.toggle('on',(t==='web'&&i===0)||(t==='mob'&&i===1)));
+  document.getElementById('cv-web').classList.toggle('on',t==='web');
+  document.getElementById('cv-mob').classList.toggle('on',t==='mob');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+</script>
+</body>
+</html>
