@@ -91,3 +91,4 @@ Cada línea corresponde a un hito menor del portafolio.
 - Registro 88 : revisión de shadow card.
 - Registro 89 : revisión de border subtle.
 - Registro 90 : revisión de hover lift.
+- Registro 91 : revisión de transición.
