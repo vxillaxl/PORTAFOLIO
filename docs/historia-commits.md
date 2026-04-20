@@ -84,3 +84,4 @@ Cada línea corresponde a un hito menor del portafolio.
 - Registro 81 : revisión de light tokens.
 - Registro 82 : revisión de theme toggle.
 - Registro 83 : revisión de mobile menu.
+- Registro 84 : revisión de breakpoint md.
