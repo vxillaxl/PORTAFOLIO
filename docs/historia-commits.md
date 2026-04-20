@@ -88,3 +88,4 @@ Cada línea corresponde a un hito menor del portafolio.
 - Registro 85 : revisión de breakpoint lg.
 - Registro 86 : revisión de max width.
 - Registro 87 : revisión de padding clamp.
+- Registro 88 : revisión de shadow card.
