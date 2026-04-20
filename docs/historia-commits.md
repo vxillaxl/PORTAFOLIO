@@ -30,3 +30,4 @@ Cada línea corresponde a un hito menor del portafolio.
 - Registro 27 : revisión de border.
 - Registro 28 : revisión de links.
 - Registro 29 : revisión de layout.
+- Registro 30 : revisión de typescript.
