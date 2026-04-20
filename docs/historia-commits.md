@@ -99,3 +99,4 @@ Cada línea corresponde a un hito menor del portafolio.
 - Registro 96 : revisión de instrucciones README.
 - Registro 97 : revisión de gitignore.
 - Registro 98 : revisión de tsconfig paths.
+- Registro 99 : revisión de postcss.
