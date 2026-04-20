@@ -69,3 +69,4 @@ Cada línea corresponde a un hito menor del portafolio.
 - Registro 66 : revisión de mono.
 - Registro 67 : revisión de serif.
 - Registro 68 : revisión de sans.
+- Registro 69 : revisión de gradient hero.
