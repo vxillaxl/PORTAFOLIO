@@ -67,3 +67,4 @@ Cada línea corresponde a un hito menor del portafolio.
 - Registro 64 : revisión de radius.
 - Registro 65 : revisión de fonts.
 - Registro 66 : revisión de mono.
+- Registro 67 : revisión de serif.
