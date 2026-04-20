@@ -94,3 +94,4 @@ Cada línea corresponde a un hito menor del portafolio.
 - Registro 91 : revisión de transición.
 - Registro 92 : revisión de acceso CV.
 - Registro 93 : revisión de ruta cv.
+- Registro 94 : revisión de metadata CV.
