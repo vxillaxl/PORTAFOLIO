@@ -5,3 +5,4 @@ Cada línea corresponde a un hito menor del portafolio.
 - Registro 2 : revisión de footer.
 - Registro 3 : revisión de proyectos.
 - Registro 4 : revisión de testimonios.
+- Registro 5 : revisión de contacto.
