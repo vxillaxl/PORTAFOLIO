@@ -60,3 +60,4 @@ Cada línea corresponde a un hito menor del portafolio.
 - Registro 57 : revisión de UX.
 - Registro 58 : revisión de laboratorio.
 - Registro 59 : revisión de Momento 2.
+- Registro 60 : revisión de interfaces.
