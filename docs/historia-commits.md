@@ -96,3 +96,4 @@ Cada línea corresponde a un hito menor del portafolio.
 - Registro 93 : revisión de ruta cv.
 - Registro 94 : revisión de metadata CV.
 - Registro 95 : revisión de PDF público.
+- Registro 96 : revisión de instrucciones README.
