@@ -12,3 +12,4 @@ Cada línea corresponde a un hito menor del portafolio.
 - Registro 9 : revisión de accesibilidad.
 - Registro 10 : revisión de tipografía.
 - Registro 11 : revisión de grid.
+- Registro 12 : revisión de espaciado.
