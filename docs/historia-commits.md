@@ -29,3 +29,4 @@ Cada línea corresponde a un hito menor del portafolio.
 - Registro 26 : revisión de shadows.
 - Registro 27 : revisión de border.
 - Registro 28 : revisión de links.
+- Registro 29 : revisión de layout.
