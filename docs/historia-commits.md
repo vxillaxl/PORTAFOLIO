@@ -26,3 +26,4 @@ Cada línea corresponde a un hito menor del portafolio.
 - Registro 23 : revisión de skills.
 - Registro 24 : revisión de badge.
 - Registro 25 : revisión de gradientes.
+- Registro 26 : revisión de shadows.
