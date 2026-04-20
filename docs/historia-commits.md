@@ -22,3 +22,4 @@ Cada línea corresponde a un hito menor del portafolio.
 - Registro 19 : revisión de light mode.
 - Registro 20 : revisión de nav.
 - Registro 21 : revisión de formulario.
+- Registro 22 : revisión de timeline.
