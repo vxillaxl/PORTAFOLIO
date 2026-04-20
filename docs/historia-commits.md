@@ -82,3 +82,4 @@ Cada línea corresponde a un hito menor del portafolio.
 - Registro 79 : revisión de input styles.
 - Registro 80 : revisión de dark tokens.
 - Registro 81 : revisión de light tokens.
+- Registro 82 : revisión de theme toggle.
