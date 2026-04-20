@@ -62,3 +62,4 @@ Cada línea corresponde a un hito menor del portafolio.
 - Registro 59 : revisión de Momento 2.
 - Registro 60 : revisión de interfaces.
 - Registro 61 : revisión de boceto.
+- Registro 62 : revisión de refinamiento.
