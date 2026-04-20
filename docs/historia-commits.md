@@ -75,3 +75,4 @@ Cada línea corresponde a un hito menor del portafolio.
 - Registro 72 : revisión de testimonio 1.
 - Registro 73 : revisión de testimonio 2.
 - Registro 74 : revisión de testimonio 3.
+- Registro 75 : revisión de experiencia académica.
