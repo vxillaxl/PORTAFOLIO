@@ -45,3 +45,4 @@ Cada línea corresponde a un hito menor del portafolio.
 - Registro 42 : revisión de contraste.
 - Registro 43 : revisión de focus.
 - Registro 44 : revisión de aria.
+- Registro 45 : revisión de sticky nav.
