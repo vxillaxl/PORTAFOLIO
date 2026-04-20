@@ -21,3 +21,4 @@ Cada línea corresponde a un hito menor del portafolio.
 - Registro 18 : revisión de dark mode.
 - Registro 19 : revisión de light mode.
 - Registro 20 : revisión de nav.
+- Registro 21 : revisión de formulario.
