@@ -64,3 +64,4 @@ Cada línea corresponde a un hito menor del portafolio.
 - Registro 61 : revisión de boceto.
 - Registro 62 : revisión de refinamiento.
 - Registro 63 : revisión de spacing.
+- Registro 64 : revisión de radius.
