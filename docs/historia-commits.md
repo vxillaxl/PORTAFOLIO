@@ -39,3 +39,4 @@ Cada línea corresponde a un hito menor del portafolio.
 - Registro 36 : revisión de semantic HTML.
 - Registro 37 : revisión de cta.
 - Registro 38 : revisión de cards.
+- Registro 39 : revisión de blockquote.
