@@ -52,3 +52,4 @@ Cada línea corresponde a un hito menor del portafolio.
 - Registro 49 : revisión de GitHub links.
 - Registro 50 : revisión de mail.
 - Registro 51 : revisión de LinkedIn.
+- Registro 52 : revisión de UCC.
