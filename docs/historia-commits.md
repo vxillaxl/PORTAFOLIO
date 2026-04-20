@@ -77,3 +77,4 @@ Cada línea corresponde a un hito menor del portafolio.
 - Registro 74 : revisión de testimonio 3.
 - Registro 75 : revisión de experiencia académica.
 - Registro 76 : revisión de experiencia laboral.
+- Registro 77 : revisión de habilidades extra.
