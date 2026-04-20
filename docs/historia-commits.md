@@ -25,3 +25,4 @@ Cada línea corresponde a un hito menor del portafolio.
 - Registro 22 : revisión de timeline.
 - Registro 23 : revisión de skills.
 - Registro 24 : revisión de badge.
+- Registro 25 : revisión de gradientes.
