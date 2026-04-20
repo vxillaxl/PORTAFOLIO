@@ -33,3 +33,4 @@ Cada línea corresponde a un hito menor del portafolio.
 - Registro 30 : revisión de typescript.
 - Registro 31 : revisión de tailwind.
 - Registro 32 : revisión de next-themes.
+- Registro 33 : revisión de eslint.
