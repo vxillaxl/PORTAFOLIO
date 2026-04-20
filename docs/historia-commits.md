@@ -16,3 +16,4 @@ Cada línea corresponde a un hito menor del portafolio.
 - Registro 13 : revisión de colores.
 - Registro 14 : revisión de hover.
 - Registro 15 : revisión de móvil.
+- Registro 16 : revisión de tablet.
