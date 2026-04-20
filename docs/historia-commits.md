@@ -10,3 +10,4 @@ Cada línea corresponde a un hito menor del portafolio.
 - Registro 7 : revisión de responsive.
 - Registro 8 : revisión de cv.
 - Registro 9 : revisión de accesibilidad.
+- Registro 10 : revisión de tipografía.
