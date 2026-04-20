@@ -48,3 +48,4 @@ Cada línea corresponde a un hito menor del portafolio.
 - Registro 45 : revisión de sticky nav.
 - Registro 46 : revisión de hero stats.
 - Registro 47 : revisión de proyecto checkout.
+- Registro 48 : revisión de demo Vercel.
