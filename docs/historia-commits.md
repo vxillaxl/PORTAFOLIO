@@ -86,3 +86,4 @@ Cada línea corresponde a un hito menor del portafolio.
 - Registro 83 : revisión de mobile menu.
 - Registro 84 : revisión de breakpoint md.
 - Registro 85 : revisión de breakpoint lg.
+- Registro 86 : revisión de max width.
