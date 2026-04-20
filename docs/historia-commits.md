@@ -55,3 +55,4 @@ Cada línea corresponde a un hito menor del portafolio.
 - Registro 52 : revisión de UCC.
 - Registro 53 : revisión de Pasto.
 - Registro 54 : revisión de 2026.
+- Registro 55 : revisión de portafolio.
