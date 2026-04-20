@@ -37,3 +37,4 @@ Cada línea corresponde a un hito menor del portafolio.
 - Registro 34 : revisión de readme.
 - Registro 35 : revisión de público.
 - Registro 36 : revisión de semantic HTML.
+- Registro 37 : revisión de cta.
