@@ -65,3 +65,4 @@ Cada línea corresponde a un hito menor del portafolio.
 - Registro 62 : revisión de refinamiento.
 - Registro 63 : revisión de spacing.
 - Registro 64 : revisión de radius.
+- Registro 65 : revisión de fonts.
