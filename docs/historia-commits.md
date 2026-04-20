@@ -71,3 +71,4 @@ Cada línea corresponde a un hito menor del portafolio.
 - Registro 68 : revisión de sans.
 - Registro 69 : revisión de gradient hero.
 - Registro 70 : revisión de footer copy.
+- Registro 71 : revisión de social row.
