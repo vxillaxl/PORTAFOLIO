@@ -56,3 +56,4 @@ Cada línea corresponde a un hito menor del portafolio.
 - Registro 53 : revisión de Pasto.
 - Registro 54 : revisión de 2026.
 - Registro 55 : revisión de portafolio.
+- Registro 56 : revisión de UI.
