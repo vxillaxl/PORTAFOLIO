@@ -73,3 +73,4 @@ Cada línea corresponde a un hito menor del portafolio.
 - Registro 70 : revisión de footer copy.
 - Registro 71 : revisión de social row.
 - Registro 72 : revisión de testimonio 1.
+- Registro 73 : revisión de testimonio 2.
