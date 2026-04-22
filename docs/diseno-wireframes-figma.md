@@ -10,7 +10,7 @@ El **portafolio en Vercel** es solo el **tercer** enlace. Los wireframes deben v
 
 | Entregable | Dónde va el link (ejemplos) |
 |------------|----------------------------|
-| **1. Wireframes** | **Apart del portafolio:** archivo **FigJam**, **otro proyecto Figma** solo con wireframes, o **Google Drive** (PDF). Copia el enlace “Compartir” que te dé esa herramienta. |
+| **1. Wireframes** | **Apart del portafolio:** archivo **FigJam**, **otro proyecto Figma** solo con wireframes, **Google Drive** (PDF), o un **repo aparte** (ej. [wireframes en GitHub](https://github.com/vxillaxl/wireframes) + opcional [GitHub Pages](https://vxillaxl.github.io/wireframes/) al activarlo). Copia el enlace que corresponda. |
 | **2. Diseño visual** | **Figma** (archivo de UI / mockups): `https://www.figma.com/design/...` o `.../file/...` con permiso de ver. |
 | **3. Portafolio implementado** | Tu deploy: `https://TU-PROYECTO.vercel.app/` |
 
