@@ -8,7 +8,9 @@ import Link from "next/link";
 
 const projectMeta = [{ demo: "https://vercel.com" }, { demo: "#" }, { demo: "#" }] as const;
 
-const TECH_TOOLS = [
+type TechTool = { name: string; src: string; invertDark?: boolean };
+
+const TECH_TOOLS: TechTool[] = [
   { name: "React", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
   { name: "Next.js", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg", invertDark: true },
   { name: "TypeScript", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
@@ -20,7 +22,7 @@ const TECH_TOOLS = [
   { name: "Git", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
   { name: "GitHub", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg", invertDark: true },
   { name: "Figma", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
-] as const;
+];
 
 function AboutVisual() {
   return (

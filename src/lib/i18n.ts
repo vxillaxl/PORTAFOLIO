@@ -344,7 +344,8 @@ export const messages = {
   },
 } as const;
 
-export type Messages = (typeof messages)["es"];
+/** Mensajes para el locale activo (estructura espejo ES / EN). */
+export type Messages = (typeof messages)[Locale];
 
 export function getMessages(locale: Locale): Messages {
   return messages[locale];
