@@ -8,6 +8,16 @@ import Link from "next/link";
 
 const projectMeta = [{ demo: "https://vercel.com" }, { demo: "#" }, { demo: "#" }] as const;
 
+/** Portadas temáticas (Unsplash) — puedes sustituir por capturas reales en `/public/projects/`. */
+const PROJECT_COVER_IMAGES = [
+  "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1400&q=82",
+  "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=900&q=82",
+  "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=82",
+] as const;
+
+const ABOUT_IMAGE =
+  "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=82";
+
 type TechTool = { name: string; src: string; invertDark?: boolean };
 
 const TECH_TOOLS: TechTool[] = [
@@ -22,67 +32,24 @@ const TECH_TOOLS: TechTool[] = [
   { name: "Figma", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
 ];
 
-function AboutVisual() {
+function AboutVisual({ imageAlt, tagline }: { imageAlt: string; tagline: string }) {
   return (
-    <figure
-      className="relative flex min-h-[280px] w-full overflow-hidden rounded-2xl border border-blue-200 bg-slate-950 shadow-[0_24px_80px_-24px_rgba(30,58,138,0.45)] dark:border-blue-900"
-      aria-hidden
-    >
-      <svg className="absolute inset-0 h-full w-full" viewBox="0 0 420 300" preserveAspectRatio="xMidYMid slice">
-        <defs>
-          <linearGradient id="cv-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#1d4ed8" stopOpacity="0.95" />
-            <stop offset="50%" stopColor="#0369a1" stopOpacity="0.9" />
-            <stop offset="100%" stopColor="#0f172a" stopOpacity="1" />
-          </linearGradient>
-          <linearGradient id="cv-shine" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#ffffff" stopOpacity="0.18" />
-            <stop offset="45%" stopColor="#ffffff" stopOpacity="0" />
-          </linearGradient>
-          <filter id="cv-blur" x="-30%" y="-30%" width="160%" height="160%">
-            <feGaussianBlur stdDeviation="22" />
-          </filter>
-        </defs>
-        <rect width="420" height="300" fill="url(#cv-grad)" />
-        <circle cx="340" cy="48" r="100" fill="#38bdf8" opacity="0.25" filter="url(#cv-blur)" />
-        <circle cx="72" cy="248" r="86" fill="#60a5fa" opacity="0.22" filter="url(#cv-blur)" />
-        <rect width="420" height="300" fill="url(#cv-shine)" />
-        <g opacity="0.35" stroke="#bfdbfe" strokeWidth="1">
-          <path d="M32 52h356M32 92h356M32 132h356M32 172h356M32 212h356M32 252h356" />
-          <path d="M72 32v236M132 32v236M192 32v236M252 32v236M312 32v236" />
-        </g>
-        <g transform="translate(48 78)" fill="none" stroke="#e0f2fe" strokeWidth="2.5" strokeLinecap="round" opacity="0.92">
-          <path d="M12 8h120a10 10 0 0 1 10 10v64a10 10 0 0 1-10 10H12a10 10 0 0 1-10-10V18A10 10 0 0 1 12 8z" />
-          <path d="M28 40h88M28 58h64M28 76h96" strokeWidth="2" opacity="0.85" />
-        </g>
-        <g transform="translate(248 156)">
-          <rect
-            x="0"
-            y="0"
-            width="112"
-            height="72"
-            rx="14"
-            fill="rgba(255,255,255,0.08)"
-            stroke="rgba(191,219,254,0.4)"
-            strokeWidth="1.5"
-          />
-          <rect x="14" y="16" width="36" height="9" rx="4" fill="#e0f2fe" opacity="0.9" />
-          <rect x="14" y="32" width="84" height="6" rx="3" fill="#e0f2fe" opacity="0.35" />
-          <rect x="14" y="44" width="64" height="6" rx="3" fill="#e0f2fe" opacity="0.22" />
-        </g>
-        <text
-          x="210"
-          y="268"
-          textAnchor="middle"
-          fill="#bfdbfe"
-          opacity="0.5"
-          fontSize="11"
-          fontFamily="var(--font-space-mono), ui-monospace, monospace"
-          letterSpacing="0.28em"
-        >
-          UI · COMPONENTS · A11Y
-        </text>
-      </svg>
+    <figure className="relative h-[min(360px,70vw)] w-full min-h-[260px] max-h-[400px] overflow-hidden rounded-2xl border border-blue-200 shadow-[0_24px_80px_-24px_rgba(30,58,138,0.45)] dark:border-blue-900 lg:h-[320px] lg:min-h-0 lg:max-h-none">
+      <Image
+        src={ABOUT_IMAGE}
+        alt={imageAlt}
+        fill
+        sizes="(max-width: 1024px) 100vw, 560px"
+        className="object-cover object-center"
+      />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-blue-950/55 via-blue-900/15 to-sky-600/25 dark:from-blue-950/70 dark:via-slate-950/30" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-slate-950/50 to-transparent" />
+      <span
+        className="pointer-events-none absolute bottom-4 left-4 z-[1] font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-white/90 drop-shadow-sm"
+        aria-hidden
+      >
+        {tagline}
+      </span>
     </figure>
   );
 }
@@ -247,7 +214,7 @@ export function HomeClient() {
                   ))}
                 </div>
               </div>
-              <AboutVisual />
+              <AboutVisual imageAlt={t.about.imageAlt} tagline={t.about.coverTagline} />
             </div>
           </div>
         </section>
@@ -267,7 +234,6 @@ export function HomeClient() {
                 const featured = p.coverBadge === "featured";
                 const ribbon =
                   p.coverBadge === "featured" ? t.projects.featured : `${t.projects.lab} ${p.coverBadge}`;
-                const coverVariant = i as 0 | 1 | 2;
                 return (
                   <article
                     key={p.title}
@@ -282,7 +248,11 @@ export function HomeClient() {
                         (featured ? "min-h-[200px] w-full lg:min-h-0 lg:w-[48%]" : "h-[180px] w-full")
                       }
                     >
-                      <ProjectCoverPanel variant={coverVariant} ribbon={ribbon} />
+                      <ProjectCoverPanel
+                        imageSrc={PROJECT_COVER_IMAGES[i]}
+                        imageAlt={p.coverAlt}
+                        ribbon={ribbon}
+                      />
                     </div>
                     <div className={"flex flex-1 flex-col p-6 " + (featured ? "lg:py-8" : "")}>
                       <h3 className="font-serif text-xl font-bold text-slate-900 dark:text-slate-50">{p.title}</h3>

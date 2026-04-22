@@ -33,6 +33,9 @@ export const messages = {
     about: {
       label: "01 · Sobre mí",
       title: "Código con criterio visual",
+      imageAlt:
+        "Espacio de trabajo con portátil mostrando código, relacionado con desarrollo web e interfaces.",
+      coverTagline: "UI · wireframe → código → deploy",
       p1: "Estudio Ingeniería de Software en la Universidad Cooperativa de Colombia (Pasto). Me interesa el camino desde el wireframe hasta el despliegue: tipografía, espaciado, estados vacíos y accesibilidad básica.",
       p2: "En laboratorio he pasado de HTML/CSS a React, y en proyectos recientes uso Next.js, TypeScript y Tailwind. Me gusta documentar en el repo y dejar componentes reutilizables.",
       p3: "Busco seguir profundizando en patrones de UI, pruebas manuales en móvil y buenas prácticas de Git en equipo.",
@@ -44,18 +47,22 @@ export const messages = {
       items: [
         {
           coverBadge: "featured",
+          coverAlt:
+            "Persona realizando un pago con tarjeta en un entorno de comercio electrónico, alusión al flujo de checkout.",
           title: "Checkout · Lab 3",
           body: "Flujo de checkout con Next.js, TypeScript y Tailwind. Énfasis en jerarquía visual y formularios.",
           tags: ["Next.js", "TypeScript", "Tailwind"],
         },
         {
           coverBadge: 2,
+          coverAlt: "Producto tipo reloj en fondo limpio, evocando una tarjeta de producto en e-commerce.",
           title: "Card de producto · Lab 2",
           body: "Card de e-commerce con imagen, precio, rating y CTA. Ejercicio de CSS y layout responsive.",
           tags: ["HTML", "CSS", "Flexbox"],
         },
         {
           coverBadge: 1,
+          coverAlt: "Pantalla con métricas y gráficos, sugiriendo una landing o panel web.",
           title: "Landing · Lab 1",
           body: "Landing con navbar, hero y footer. Primera aproximación a sistemas de espaciado y breakpoints.",
           tags: ["HTML", "CSS", "Responsive"],
@@ -204,6 +211,8 @@ export const messages = {
     about: {
       label: "01 · About",
       title: "Code with visual judgment",
+      imageAlt: "Desk with a laptop showing code, representing web development and interface work.",
+      coverTagline: "UI · wireframe → code → deploy",
       p1: "I study Software Engineering at Universidad Cooperativa de Colombia (Pasto). I like the path from wireframe to deploy: typography, spacing, empty states, and basic accessibility.",
       p2: "In labs I moved from HTML/CSS to React; recent projects use Next.js, TypeScript, and Tailwind. I document in the repo and aim for reusable components.",
       p3: "I want to keep growing in UI patterns, manual mobile QA, and healthy Git habits in teams.",
@@ -215,18 +224,21 @@ export const messages = {
       items: [
         {
           coverBadge: "featured",
+          coverAlt: "Person paying with a card in an e-commerce context, evoking a checkout flow.",
           title: "Checkout · Lab 3",
           body: "Checkout flow with Next.js, TypeScript, and Tailwind. Focus on visual hierarchy and forms.",
           tags: ["Next.js", "TypeScript", "Tailwind"],
         },
         {
           coverBadge: 2,
+          coverAlt: "Clean product shot suggesting an e-commerce product card.",
           title: "Product card · Lab 2",
           body: "E-commerce card with image, price, rating, and CTA. CSS and responsive layout practice.",
           tags: ["HTML", "CSS", "Flexbox"],
         },
         {
           coverBadge: 1,
+          coverAlt: "Screen with charts and metrics, suggesting a landing page or web dashboard.",
           title: "Landing · Lab 1",
           body: "Landing with navbar, hero, and footer. First pass at spacing systems and breakpoints.",
           tags: ["HTML", "CSS", "Responsive"],
