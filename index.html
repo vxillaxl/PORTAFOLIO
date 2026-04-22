@@ -802,3 +802,10 @@ const observer=new IntersectionObserver((entries)=>{
   entries.forEach(e=>{
     if(e.isIntersecting){
       e.target.style.animation='fadeUp .6s ease both';
+    }
+  });
+},{threshold:0.08});
+document.querySelectorAll('.section,.hero-inner').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
