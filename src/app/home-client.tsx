@@ -1,5 +1,6 @@
 "use client";
 
+import { ProjectCoverPanel } from "@/app/project-cover-panel";
 import { useLanguage } from "@/components/language-provider";
 import { getMessages } from "@/lib/i18n";
 import Image from "next/image";
@@ -10,8 +11,6 @@ const projectMeta = [
   { gh: "https://github.com/vxillaxl", demo: "#" },
   { gh: "https://github.com/vxillaxl", demo: "#" },
 ] as const;
-
-const PROJECT_COVERS = ["/projects/checkout-cover.svg", "/projects/product-cover.svg", "/projects/landing-cover.svg"] as const;
 
 const TECH_TOOLS = [
   { name: "React", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
@@ -262,9 +261,9 @@ export function HomeClient() {
               {t.projects.items.map((p, i) => {
                 const links = projectMeta[i];
                 const featured = p.coverBadge === "featured";
-                const cover = PROJECT_COVERS[i];
                 const ribbon =
                   p.coverBadge === "featured" ? t.projects.featured : `${t.projects.lab} ${p.coverBadge}`;
+                const coverVariant = i as 0 | 1 | 2;
                 return (
                   <article
                     key={p.title}
@@ -279,17 +278,7 @@ export function HomeClient() {
                         (featured ? "min-h-[200px] w-full lg:min-h-0 lg:w-[48%]" : "h-[180px] w-full")
                       }
                     >
-                      <img
-                        src={cover}
-                        alt={p.title}
-                        className="absolute inset-0 h-full w-full object-cover object-center transition duration-500 group-hover:scale-105"
-                        loading={i === 0 ? "eager" : "lazy"}
-                        decoding="async"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-blue-950/70 via-blue-950/10 to-transparent dark:from-slate-950/80" />
-                      <span className="absolute bottom-3 left-3 rounded-md bg-white/90 px-2 py-1 font-mono text-[10px] font-bold uppercase tracking-wider text-blue-900 shadow dark:bg-slate-900/90 dark:text-blue-200">
-                        {ribbon}
-                      </span>
+                      <ProjectCoverPanel variant={coverVariant} ribbon={ribbon} />
                     </div>
                     <div className={"flex flex-1 flex-col p-6 " + (featured ? "lg:py-8" : "")}>
                       <h3 className="font-serif text-xl font-bold text-slate-900 dark:text-slate-50">{p.title}</h3>
