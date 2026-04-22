@@ -4,6 +4,22 @@ Guía para completar el entregable de **wireframes** + **diseño visual** alinea
 
 ---
 
+## Los 3 links que suele pedir el profe
+
+Sustituye `TU-PROYECTO.vercel.app` por el dominio real de tu despliegue (ej. `portafolio-xxx.vercel.app`).
+
+| Entregable | Link (plantilla) |
+|------------|------------------|
+| **1. Wireframes** | `https://TU-PROYECTO.vercel.app/wireframes` |
+| **2. Diseño visual (Figma)** | `https://www.figma.com/design/TU-ARCHIVO/...` (compartir → “Anyone with the link”) |
+| **3. Portafolio implementado** | `https://TU-PROYECTO.vercel.app/` |
+
+La ruta **`/wireframes`** está en este mismo repo: página estática de **baja fidelidad** (cajas y etiquetas), pensada solo para entrega y enlace.
+
+---
+
+---
+
 ## 1. Qué pediría un profe (checklist)
 
 - [ ] **Wireframes** (baja o media fidelidad): al menos **Home** desktop + **Home** móvil (menú); opcional **CV**.
