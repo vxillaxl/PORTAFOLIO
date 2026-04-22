@@ -107,14 +107,6 @@ export function HomeClient() {
                 >
                   {t.hero.ctaCv}
                 </Link>
-                <a
-                  href="/cv_bryan.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="rounded-full border border-dashed border-blue-300 px-6 py-3.5 text-sm font-semibold text-blue-800 transition hover:border-blue-500 hover:bg-blue-50 dark:border-blue-700 dark:text-blue-200 dark:hover:bg-slate-900"
-                >
-                  {t.hero.ctaPdf}
-                </a>
               </div>
               <dl className="mt-14 flex flex-wrap justify-center gap-10 lg:justify-start">
                 {[
