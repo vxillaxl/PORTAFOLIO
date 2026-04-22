@@ -13,7 +13,7 @@ export default function CvPage() {
         <header className="flex flex-col gap-4 border-b border-blue-100 pb-8 dark:border-slate-700 sm:flex-row sm:items-start sm:justify-between">
           <div>
             <h1 className="font-serif text-3xl font-black text-blue-950 dark:text-slate-50">Bryan A. Ramírez</h1>
-            <p className="mt-1 font-mono text-sm text-slate-500 dark:text-slate-400">Desarrollador web · Frontend · Pasto, Colombia</p>
+            <p className="mt-1 font-mono text-sm text-slate-500 dark:text-slate-400">Estudiante de Ingeniería de Software · 5.º semestre · Pasto, Colombia</p>
             <p className="mt-3 text-sm text-slate-600 dark:text-slate-300">
               <a href="mailto:vxillaxl4@gmail.com" className="text-blue-600 hover:underline dark:text-blue-400">
                 vxillaxl4@gmail.com
@@ -29,12 +29,12 @@ export default function CvPage() {
               ← Portafolio
             </Link>
             <a
-              href="/Bryan-Ramirez-CV.pdf"
+              href="/cv_bryan.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700 dark:bg-blue-500"
             >
-              Abrir PDF (si existe en /public)
+              Descargar PDF
             </a>
           </div>
         </header>
@@ -42,26 +42,21 @@ export default function CvPage() {
         <section className="mt-8">
           <h2 className="border-l-4 border-blue-600 pl-3 font-serif text-lg font-bold text-blue-950 dark:border-blue-400 dark:text-slate-50">Perfil</h2>
           <p className="mt-3 text-slate-600 dark:text-slate-300">
-            Interfaces responsivas, accesibles y alineadas al diseño. Experiencia con React, Next.js, TypeScript y Tailwind CSS.
+            Estudiante enfocado en desarrollo web y diseño de interfaces: maquetación responsiva, componentes reutilizables y buenas prácticas con React, Next.js, TypeScript y Tailwind CSS.
           </p>
         </section>
 
         <section className="mt-8">
           <h2 className="border-l-4 border-blue-600 pl-3 font-serif text-lg font-bold text-blue-950 dark:border-blue-400 dark:text-slate-50">Educación</h2>
           <p className="mt-3 font-semibold text-blue-950 dark:text-slate-100">Ingeniería de Software</p>
-          <p className="text-sm text-slate-600 dark:text-slate-300">Universidad Cooperativa de Colombia · Pasto (en curso)</p>
+          <p className="text-sm text-slate-600 dark:text-slate-300">Universidad Cooperativa de Colombia · Sede Pasto · 5.º semestre (en curso)</p>
         </section>
 
         <section className="mt-8">
-          <h2 className="border-l-4 border-blue-600 pl-3 font-serif text-lg font-bold text-blue-950 dark:border-blue-400 dark:text-slate-50">Experiencia</h2>
-          <ul className="mt-3 list-disc space-y-2 pl-5 text-slate-600 dark:text-slate-300">
-            <li>
-              <strong className="text-slate-800 dark:text-slate-100">Frontend freelance</strong> — 2024 a la fecha. Landings y laboratorios de interfaces.
-            </li>
-            <li>
-              <strong className="text-slate-800 dark:text-slate-100">Asistente desarrollo web</strong> — 2023–2024.
-            </li>
-          </ul>
+          <h2 className="border-l-4 border-blue-600 pl-3 font-serif text-lg font-bold text-blue-950 dark:border-blue-400 dark:text-slate-50">Experiencia laboral</h2>
+          <p className="mt-3 text-slate-600 dark:text-slate-300">
+            Aún no cuento con experiencia laboral formal en desarrollo de software. Mi trayectoria se centra en la formación académica, laboratorios y proyectos del programa.
+          </p>
         </section>
 
         <section className="mt-8">
@@ -74,11 +69,6 @@ export default function CvPage() {
             ))}
           </p>
         </section>
-
-        <p className="mt-10 text-xs text-slate-500 dark:text-slate-400">
-          Coloca tu archivo <code className="rounded bg-slate-100 px-1 dark:bg-slate-800">Bryan-Ramirez-CV.pdf</code> en la carpeta{" "}
-          <code className="rounded bg-slate-100 px-1 dark:bg-slate-800">public</code> del proyecto Next para que el botón PDF funcione.
-        </p>
       </article>
     </main>
   );

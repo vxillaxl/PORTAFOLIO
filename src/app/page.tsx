@@ -2,6 +2,53 @@ import Link from "next/link";
 import { SiteNav } from "@/components/site-nav";
 import { ThemeToggle } from "@/components/theme-toggle";
 
+function AboutVisual() {
+  return (
+    <figure
+      className="relative flex min-h-[260px] w-full overflow-hidden rounded-2xl border border-blue-100 bg-slate-950 shadow-inner dark:border-slate-700"
+      aria-hidden
+    >
+      <svg className="absolute inset-0 h-full w-full" viewBox="0 0 400 280" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#1d4ed8" stopOpacity="0.95" />
+            <stop offset="55%" stopColor="#6366f1" stopOpacity="0.85" />
+            <stop offset="100%" stopColor="#0ea5e9" stopOpacity="0.9" />
+          </linearGradient>
+          <linearGradient id="g2" x1="100%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor="#ffffff" stopOpacity="0.14" />
+            <stop offset="100%" stopColor="#ffffff" stopOpacity="0" />
+          </linearGradient>
+          <filter id="blur" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="18" />
+          </filter>
+        </defs>
+        <rect width="400" height="280" fill="url(#g1)" />
+        <circle cx="320" cy="40" r="90" fill="#38bdf8" opacity="0.35" filter="url(#blur)" />
+        <circle cx="60" cy="220" r="70" fill="#a78bfa" opacity="0.4" filter="url(#blur)" />
+        <rect x="0" y="0" width="400" height="280" fill="url(#g2)" />
+        <g opacity="0.22" stroke="white" strokeWidth="1.2">
+          <path d="M40 60h320M40 100h320M40 140h320M40 180h320M40 220h320" />
+          <path d="M80 40v200M140 40v200M200 40v200M260 40v200M320 40v200" />
+        </g>
+        <g transform="translate(52 72)" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" opacity="0.9">
+          <path d="M8 12h88c8 0 14 6 14 14v52c0 8-6 14-14 14H8c-8 0-14-6-14-14V26c0-8 6-14 14-14z" />
+          <path d="M24 36h56M24 52h40M24 68h56" opacity="0.85" strokeWidth="2.5" />
+        </g>
+        <g transform="translate(248 148)" opacity="0.95">
+          <rect x="0" y="0" width="92" height="64" rx="12" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.35)" strokeWidth="1.5" />
+          <rect x="12" y="14" width="28" height="8" rx="4" fill="white" opacity="0.85" />
+          <rect x="12" y="28" width="68" height="6" rx="3" fill="white" opacity="0.35" />
+          <rect x="12" y="40" width="52" height="6" rx="3" fill="white" opacity="0.25" />
+        </g>
+        <text x="200" y="248" textAnchor="middle" fill="white" opacity="0.55" fontSize="11" fontFamily="ui-monospace, monospace" letterSpacing="0.2em">
+          UI · COMPONENTES · RESPONSIVE
+        </text>
+      </svg>
+    </figure>
+  );
+}
+
 export default function HomePage() {
   return (
     <>
@@ -14,13 +61,13 @@ export default function HomePage() {
             <div className="text-center lg:text-left">
               <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-100 px-4 py-1.5 font-mono text-xs font-semibold text-blue-700 dark:border-blue-800 dark:bg-blue-950 dark:text-blue-300">
                 <span className="h-2 w-2 animate-pulse rounded-full bg-blue-500" aria-hidden />
-                Disponible para proyectos
+                Ingeniería de Software · 5.º semestre
               </p>
               <h1 className="font-serif text-4xl font-black leading-tight tracking-tight text-blue-950 dark:text-slate-50 sm:text-5xl lg:text-6xl">
                 Bryan A. <em className="text-blue-600 not-italic dark:text-blue-400">Ramírez</em>
               </h1>
               <p className="mt-4 max-w-xl text-lg text-slate-600 dark:text-slate-300 lg:mx-0 mx-auto">
-                Desarrollador web. Este portafolio es responsivo (móvil, tablet, escritorio) y soporta modo claro y oscuro.
+                Estudiante de Ingeniería de Software en la UCC, sede Pasto. Me gusta construir interfaces ordenadas, accesibles y bien maquetadas.
               </p>
               <div className="mt-8 flex flex-wrap justify-center gap-3 lg:justify-start">
                 <a href="#proyectos" className="rounded-xl bg-blue-600 px-6 py-3 font-semibold text-white shadow-md hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-400">
@@ -32,12 +79,20 @@ export default function HomePage() {
                 >
                   Ver mi hoja de vida
                 </Link>
+                <a
+                  href="/cv_bryan.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-xl border-2 border-slate-200 bg-slate-50 px-6 py-3 font-semibold text-slate-800 hover:bg-slate-100 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-700"
+                >
+                  PDF
+                </a>
               </div>
               <dl className="mt-10 flex flex-wrap justify-center gap-8 lg:justify-start">
                 {[
-                  ["3+", "Años exp."],
-                  ["12+", "Proyectos"],
-                  ["8+", "Clientes"],
+                  ["5.º", "Semestre"],
+                  ["UCC", "Pasto"],
+                  ["IS", "Enfoque web"],
                 ].map(([n, l]) => (
                   <div key={l}>
                     <dt className="font-serif text-3xl font-black text-blue-600 dark:text-blue-400">{n}</dt>
@@ -48,11 +103,11 @@ export default function HomePage() {
             </div>
             <div className="flex justify-center">
               <div className="w-full max-w-sm rounded-3xl border border-blue-100 bg-white p-8 shadow-xl dark:border-slate-700 dark:bg-slate-900">
-                <div className="mx-auto mb-5 flex h-28 w-28 items-center justify-center rounded-full border-4 border-white bg-gradient-to-br from-blue-200 to-blue-500 text-4xl shadow-md dark:border-slate-900">
-                  👨‍💻
+                <div className="mx-auto mb-5 flex h-28 w-28 items-center justify-center rounded-full border-4 border-white bg-gradient-to-br from-blue-600 via-indigo-500 to-sky-400 text-3xl font-black tracking-tight text-white shadow-md dark:border-slate-900">
+                  BAR
                 </div>
                 <p className="text-center font-serif text-xl font-bold text-blue-950 dark:text-slate-100">Bryan A. Ramírez</p>
-                <p className="mt-1 text-center font-mono text-xs text-slate-500">Frontend · UX</p>
+                <p className="mt-1 text-center font-mono text-xs text-slate-500">Estudiante · Interfaces web</p>
                 <div className="mt-5 flex flex-wrap justify-center gap-2">
                   {["React", "Next.js", "Tailwind", "Git", "Figma"].map((t) => (
                     <span key={t} className="rounded-full border border-blue-100 bg-blue-50 px-3 py-1 font-mono text-xs text-blue-700 dark:border-slate-600 dark:bg-slate-800 dark:text-blue-300">
@@ -89,8 +144,14 @@ export default function HomePage() {
             <h2 className="mt-3 font-serif text-3xl font-black text-blue-950 dark:text-slate-50 lg:text-4xl">¿Quién soy?</h2>
             <div className="mt-10 grid gap-10 lg:grid-cols-2 lg:items-center">
               <div className="space-y-4 text-slate-600 dark:text-slate-300">
-                <p>Desarrollador web enfocado en interfaces claras, accesibles y responsivas.</p>
-                <p>Stack principal: React, Next.js, TypeScript y Tailwind CSS.</p>
+                <p>
+                  Soy estudiante de Ingeniería de Software (5.º semestre) en la Universidad Cooperativa de Colombia, sede Pasto. Disfruto pasar del
+                  wireframe al código: tipografías claras, espaciado consistente y componentes que se comporten bien en móvil y escritorio.
+                </p>
+                <p>
+                  En laboratorio he trabajado con HTML y CSS, luego con React y, en proyectos recientes, con Next.js, TypeScript y Tailwind. Me
+                  interesa seguir profundizando en accesibilidad y buenas prácticas de front.
+                </p>
                 <div className="flex flex-wrap gap-2 pt-2">
                   {["React / Next.js", "TypeScript", "Tailwind", "Node.js", "GitHub", "Figma"].map((t) => (
                     <span key={t} className="rounded-full border border-blue-100 bg-blue-50 px-3 py-1 font-mono text-xs text-blue-700 dark:border-slate-600 dark:bg-slate-800 dark:text-blue-300">
@@ -99,9 +160,7 @@ export default function HomePage() {
                   ))}
                 </div>
               </div>
-              <div className="flex min-h-[220px] items-center justify-center rounded-2xl border border-blue-100 bg-gradient-to-br from-blue-100 to-blue-200 text-6xl dark:border-slate-700 dark:from-slate-800 dark:to-slate-900">
-                🧑‍💻
-              </div>
+              <AboutVisual />
             </div>
           </div>
         </section>
@@ -112,7 +171,7 @@ export default function HomePage() {
               02 · Proyectos
             </span>
             <h2 className="mt-3 font-serif text-3xl font-black text-blue-950 dark:text-slate-50">Mis proyectos</h2>
-            <p className="mt-2 max-w-xl text-slate-600 dark:text-slate-300">GitHub y demo (Vercel) según la guía del curso.</p>
+            <p className="mt-2 max-w-xl text-slate-600 dark:text-slate-300">Laboratorios y entregas donde practico maquetación, componentes y despliegue.</p>
             <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {[
                 {
@@ -134,7 +193,7 @@ export default function HomePage() {
                 {
                   emoji: "📱",
                   title: "Landing · Lab 1",
-                  desc: "Responsive: navbar, hero y footer.",
+                  desc: "Navbar, hero y footer responsivos.",
                   gh: "https://github.com/vxillaxl",
                   demo: "#",
                   grad: "from-violet-100 to-purple-100 dark:from-slate-800 dark:to-violet-950",
@@ -166,19 +225,37 @@ export default function HomePage() {
               03 · Testimonios
             </span>
             <h2 className="mt-3 font-serif text-3xl font-black text-blue-950 dark:text-slate-50">Lo que dicen de mí</h2>
+            <p className="mt-2 max-w-2xl text-sm text-slate-600 dark:text-slate-400">
+              Compañeros y personas cercanas con las que he colaborado en proyectos o retos técnicos.
+            </p>
             <div className="mt-10 grid gap-6 md:grid-cols-3">
               {[
-                { q: "«Entrega a tiempo y con calidad.»", n: "Carlos Ruiz", r: "CEO · StartupCo", a: "CR" },
-                { q: "«Rápido entendiendo requerimientos.»", n: "María López", r: "PM · TechCorp", a: "ML" },
-                { q: "«Profesional y buen criterio de diseño.»", n: "Andrés Pérez", r: "Designer", a: "AP" },
+                {
+                  q: "«Cuando armamos el entregable en grupo, llevó buena parte del frontend: dejó el layout limpio y nos ayudó a cuadrar tipografías y espaciados en Tailwind sin pelear con el diseño.»",
+                  n: "Daniela Vélez",
+                  r: "Compañera de semestre · Ingeniería de Software",
+                  a: "DV",
+                },
+                {
+                  q: "«En el proyecto del curso se encargó de la interfaz y del repo: integró Figma con el código, explicó los componentes y mantuvo todo ordenado para la entrega.»",
+                  n: "Juan Muñoz",
+                  r: "Compañero de equipo · Proyecto universitario",
+                  a: "JM",
+                },
+                {
+                  q: "«Me ayudó a revisar mi portafolio y me sugirió mejoras de usabilidad y responsive; se nota que le gusta pulir detalles hasta que se vea bien en el celular.»",
+                  n: "Álvaro Salazar",
+                  r: "Amigo · Colaboración en proyectos personales",
+                  a: "AS",
+                },
               ].map((t) => (
                 <blockquote key={t.n} className="relative rounded-2xl border border-blue-100 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-900">
-                  <p className="text-slate-600 dark:text-slate-300">{t.q}</p>
+                  <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-300">{t.q}</p>
                   <footer className="mt-5 flex items-center gap-3">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-blue-200 to-blue-500 font-bold text-white">{t.a}</div>
+                    <div className="flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-blue-200 to-blue-500 text-xs font-bold text-white">{t.a}</div>
                     <div>
                       <p className="font-semibold text-blue-950 dark:text-slate-100">{t.n}</p>
-                      <p className="font-mono text-xs text-slate-400">{t.r}</p>
+                      <p className="font-mono text-[11px] leading-snug text-slate-400">{t.r}</p>
                     </div>
                   </footer>
                 </blockquote>
@@ -197,40 +274,31 @@ export default function HomePage() {
               <div>
                 <h3 className="mb-6 flex items-center gap-3 font-serif text-xl font-bold text-blue-950 dark:text-slate-100">
                   <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-100 text-xl dark:bg-slate-800">🎓</span>
-                  Académica
+                  Formación académica
                 </h3>
                 <ul className="space-y-4 border-l-2 border-blue-200 pl-6 dark:border-slate-600">
                   <li className="relative">
                     <span className="absolute -left-[29px] top-1 h-3 w-3 rounded-full border-2 border-blue-500 bg-white dark:bg-slate-900" />
-                    <p className="font-mono text-xs text-blue-600 dark:text-blue-400">En curso</p>
+                    <p className="font-mono text-xs text-blue-600 dark:text-blue-400">En curso · 5.º semestre</p>
                     <p className="font-semibold text-blue-950 dark:text-slate-100">Ingeniería de Software</p>
-                    <p className="text-sm text-slate-600 dark:text-slate-300">UCC · Pasto</p>
-                  </li>
-                  <li className="relative pt-2">
-                    <span className="absolute -left-[29px] top-3 h-3 w-3 rounded-full border-2 border-blue-500 bg-white dark:bg-slate-900" />
-                    <p className="font-mono text-xs text-blue-600 dark:text-blue-400">2022 – 2023</p>
-                    <p className="font-semibold text-blue-950 dark:text-slate-100">UI/UX</p>
-                    <p className="text-sm text-slate-600 dark:text-slate-300">Platzi</p>
+                    <p className="text-sm text-slate-600 dark:text-slate-300">Universidad Cooperativa de Colombia · Sede Pasto</p>
                   </li>
                 </ul>
               </div>
               <div>
                 <h3 className="mb-6 flex items-center gap-3 font-serif text-xl font-bold text-blue-950 dark:text-slate-100">
-                  <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-100 text-xl dark:bg-slate-800">💼</span>
-                  Laboral
+                  <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-100 text-xl dark:bg-slate-800">📚</span>
+                  Práctica en el programa
                 </h3>
-                <ul className="space-y-4 border-l-2 border-blue-200 pl-6 dark:border-slate-600">
-                  <li className="relative">
-                    <span className="absolute -left-[29px] top-1 h-3 w-3 rounded-full border-2 border-blue-500 bg-white dark:bg-slate-900" />
-                    <p className="font-mono text-xs text-blue-600 dark:text-blue-400">2024 – Presente</p>
-                    <p className="font-semibold text-blue-950 dark:text-slate-100">Frontend freelance</p>
-                    <p className="text-sm text-slate-600 dark:text-slate-300">Independiente · Pasto</p>
+                <ul className="space-y-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+                  <li className="rounded-xl border border-blue-100 bg-white p-4 dark:border-slate-700 dark:bg-slate-900">
+                    Laboratorios de <strong className="text-slate-800 dark:text-slate-100">diseño de interfaces</strong>: maquetación responsive, componentes y entregas con HTML, CSS y luego con frameworks.
                   </li>
-                  <li className="relative pt-2">
-                    <span className="absolute -left-[29px] top-3 h-3 w-3 rounded-full border-2 border-blue-500 bg-white dark:bg-slate-900" />
-                    <p className="font-mono text-xs text-blue-600 dark:text-blue-400">2023 – 2024</p>
-                    <p className="font-semibold text-blue-950 dark:text-slate-100">Asistente desarrollo web</p>
-                    <p className="text-sm text-slate-600 dark:text-slate-300">Empresa local</p>
+                  <li className="rounded-xl border border-blue-100 bg-white p-4 dark:border-slate-700 dark:bg-slate-900">
+                    <strong className="text-slate-800 dark:text-slate-100">Trabajo en equipo</strong> en proyectos formativos: reparto de tareas, revisiones entre pares y documentación básica en el repo.
+                  </li>
+                  <li className="rounded-xl border border-blue-100 bg-white p-4 dark:border-slate-700 dark:bg-slate-900">
+                    <strong className="text-slate-800 dark:text-slate-100">Experiencia laboral formal</strong> en desarrollo de software: aún no aplica; mi foco hoy es la formación y los proyectos académicos.
                   </li>
                 </ul>
               </div>
@@ -241,9 +309,9 @@ export default function HomePage() {
         <section id="habilidades" className="px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
           <div className="mx-auto max-w-[1100px]">
             <span className="inline-block rounded-full border border-blue-200 bg-blue-50 px-3 py-1 font-mono text-[11px] font-semibold uppercase tracking-widest text-blue-600 dark:border-blue-800 dark:bg-blue-950 dark:text-blue-300">
-              05 · Sección adicional
+              05 · Habilidades
             </span>
-            <h2 className="mt-3 font-serif text-3xl font-black text-blue-950 dark:text-slate-50">Habilidades</h2>
+            <h2 className="mt-3 font-serif text-3xl font-black text-blue-950 dark:text-slate-50">Stack y herramientas</h2>
             <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
               {[
                 ["React / Next", "88%"],
@@ -285,7 +353,7 @@ export default function HomePage() {
                   <input id="em" type="email" className="mt-1 w-full rounded-xl border-2 border-blue-100 bg-white px-4 py-3 dark:border-slate-600 dark:bg-slate-950" placeholder="tu@email.com" />
                 </div>
                 <button type="button" className="rounded-xl bg-blue-600 px-6 py-3 font-semibold text-white hover:bg-blue-700 dark:bg-blue-500">
-                  Enviar (conecta a Formspree o API)
+                  Enviar
                 </button>
               </form>
               <div className="space-y-3">
@@ -320,7 +388,7 @@ export default function HomePage() {
             <p className="font-serif text-xl font-black">
               Bryan<span className="text-blue-400">.</span>
             </p>
-            <p className="mt-1 font-mono text-xs text-white/50">© 2026 · Pasto, Colombia · Next.js + Tailwind</p>
+            <p className="mt-1 font-mono text-xs text-white/50">© 2026 · Pasto, Colombia</p>
           </div>
           <div className="flex gap-2">
             <a href="https://github.com/vxillaxl" target="_blank" rel="noopener noreferrer" className="rounded-lg border border-white/20 px-3 py-2 font-mono text-xs hover:bg-blue-600">
