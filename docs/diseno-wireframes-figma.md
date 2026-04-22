@@ -6,17 +6,15 @@ Guía para completar el entregable de **wireframes** + **diseño visual** alinea
 
 ## Los 3 links que suele pedir el profe
 
-Sustituye `TU-PROYECTO.vercel.app` por el dominio real de tu despliegue (ej. `portafolio-xxx.vercel.app`).
+El **portafolio en Vercel** es solo el **tercer** enlace. Los wireframes deben vivir **fuera** de ese sitio (otro URL), para que el profe vea claro qué es boceto y qué es ya implementado.
 
-| Entregable | Link (plantilla) |
-|------------|------------------|
-| **1. Wireframes** | `https://TU-PROYECTO.vercel.app/wireframes` |
-| **2. Diseño visual (Figma)** | `https://www.figma.com/design/TU-ARCHIVO/...` (compartir → “Anyone with the link”) |
-| **3. Portafolio implementado** | `https://TU-PROYECTO.vercel.app/` |
+| Entregable | Dónde va el link (ejemplos) |
+|------------|----------------------------|
+| **1. Wireframes** | **Apart del portafolio:** archivo **FigJam**, **otro proyecto Figma** solo con wireframes, o **Google Drive** (PDF). Copia el enlace “Compartir” que te dé esa herramienta. |
+| **2. Diseño visual** | **Figma** (archivo de UI / mockups): `https://www.figma.com/design/...` o `.../file/...` con permiso de ver. |
+| **3. Portafolio implementado** | Tu deploy: `https://TU-PROYECTO.vercel.app/` |
 
-La ruta **`/wireframes`** está en este mismo repo: página estática de **baja fidelidad** (cajas y etiquetas), pensada solo para entrega y enlace.
-
----
+Sustituye `TU-PROYECTO.vercel.app` por tu dominio real en Vercel.
 
 ---
 

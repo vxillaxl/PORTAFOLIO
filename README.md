@@ -12,12 +12,7 @@ npm run dev
 
 Abre [http://localhost:3000](http://localhost:3000).
 
-## Wireframes (entrega)
-
-Página de **baja fidelidad** para el enlace del profe: [http://localhost:3000/wireframes](http://localhost:3000/wireframes)  
-En producción: `https://TU-DOMINIO-VERCEL.vercel.app/wireframes`
-
-Guía Figma + tokens: [docs/diseno-wireframes-figma.md](docs/diseno-wireframes-figma.md).
+Guía de **wireframes y Figma** (entrega aparte del sitio): [docs/diseno-wireframes-figma.md](docs/diseno-wireframes-figma.md).
 
 ## Hoja de vida (PDF)
 
