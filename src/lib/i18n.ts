@@ -43,16 +43,19 @@ export const messages = {
       desc: "Selección de retos donde practiqué maquetación, componentes y despliegue.",
       items: [
         {
+          coverBadge: "featured",
           title: "Checkout · Lab 3",
           body: "Flujo de checkout con Next.js, TypeScript y Tailwind. Énfasis en jerarquía visual y formularios.",
           tags: ["Next.js", "TypeScript", "Tailwind"],
         },
         {
+          coverBadge: 2,
           title: "Card de producto · Lab 2",
           body: "Card de e-commerce con imagen, precio, rating y CTA. Ejercicio de CSS y layout responsive.",
           tags: ["HTML", "CSS", "Flexbox"],
         },
         {
+          coverBadge: 1,
           title: "Landing · Lab 1",
           body: "Landing con navbar, hero y footer. Primera aproximación a sistemas de espaciado y breakpoints.",
           tags: ["HTML", "CSS", "Responsive"],
@@ -212,16 +215,19 @@ export const messages = {
       desc: "A selection of challenges where I practiced layout, components, and shipping.",
       items: [
         {
+          coverBadge: "featured",
           title: "Checkout · Lab 3",
           body: "Checkout flow with Next.js, TypeScript, and Tailwind. Focus on visual hierarchy and forms.",
           tags: ["Next.js", "TypeScript", "Tailwind"],
         },
         {
+          coverBadge: 2,
           title: "Product card · Lab 2",
           body: "E-commerce card with image, price, rating, and CTA. CSS and responsive layout practice.",
           tags: ["HTML", "CSS", "Flexbox"],
         },
         {
+          coverBadge: 1,
           title: "Landing · Lab 1",
           body: "Landing with navbar, hero, and footer. First pass at spacing systems and breakpoints.",
           tags: ["HTML", "CSS", "Responsive"],

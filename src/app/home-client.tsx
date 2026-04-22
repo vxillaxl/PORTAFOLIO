@@ -11,11 +11,7 @@ const projectMeta = [
   { gh: "https://github.com/vxillaxl", demo: "#" },
 ] as const;
 
-const PROJECT_COVERS = [
-  "https://images.unsplash.com/photo-1556742049-0cfed4f7a08d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-  "https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-  "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-] as const;
+const PROJECT_COVERS = ["/projects/checkout-cover.svg", "/projects/product-cover.svg", "/projects/landing-cover.svg"] as const;
 
 const TECH_TOOLS = [
   { name: "React", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
@@ -265,8 +261,10 @@ export function HomeClient() {
             <div className="mt-14 grid gap-5 lg:grid-cols-3">
               {t.projects.items.map((p, i) => {
                 const links = projectMeta[i];
-                const featured = i === 0;
+                const featured = p.coverBadge === "featured";
                 const cover = PROJECT_COVERS[i];
+                const ribbon =
+                  p.coverBadge === "featured" ? t.projects.featured : `${t.projects.lab} ${p.coverBadge}`;
                 return (
                   <article
                     key={p.title}
@@ -281,17 +279,16 @@ export function HomeClient() {
                         (featured ? "min-h-[200px] w-full lg:min-h-0 lg:w-[48%]" : "h-[180px] w-full")
                       }
                     >
-                      <Image
+                      <img
                         src={cover}
                         alt={p.title}
-                        fill
-                        className="object-cover transition duration-500 group-hover:scale-105"
-                        sizes={featured ? "(max-width:1024px) 100vw, 48vw" : "(max-width:1024px) 100vw, 33vw"}
-                        priority={i === 0}
+                        className="absolute inset-0 h-full w-full object-cover object-center transition duration-500 group-hover:scale-105"
+                        loading={i === 0 ? "eager" : "lazy"}
+                        decoding="async"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-blue-950/70 via-blue-950/10 to-transparent dark:from-slate-950/80" />
                       <span className="absolute bottom-3 left-3 rounded-md bg-white/90 px-2 py-1 font-mono text-[10px] font-bold uppercase tracking-wider text-blue-900 shadow dark:bg-slate-900/90 dark:text-blue-200">
-                        {featured ? t.projects.featured : `${t.projects.lab} ${i + 1}`}
+                        {ribbon}
                       </span>
                     </div>
                     <div className={"flex flex-1 flex-col p-6 " + (featured ? "lg:py-8" : "")}>
