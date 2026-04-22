@@ -231,19 +231,19 @@ export default function HomePage() {
             <div className="mt-10 grid gap-6 md:grid-cols-3">
               {[
                 {
-                  q: "«Cuando armamos el entregable en grupo, llevó buena parte del frontend: dejó el layout limpio y nos ayudó a cuadrar tipografías y espaciados en Tailwind sin pelear con el diseño.»",
+                  q: "«Bryan es una persona seria, responsable y muy buena onda. Siempre está dispuesto a ayudar y transmite mucha tranquilidad cuando el estrés del semestre aprieta.»",
                   n: "Daniela Vélez",
                   r: "Compañera de semestre · Ingeniería de Software",
                   a: "DV",
                 },
                 {
-                  q: "«En el proyecto del curso se encargó de la interfaz y del repo: integró Figma con el código, explicó los componentes y mantuvo todo ordenado para la entrega.»",
+                  q: "«De los compañeros con los que más disfruto trabajar en equipo: cumple, comunica bien y se nota que le importa hacer las cosas bien. Cualquier grupo se lo llevaría con gusto.»",
                   n: "Juan Muñoz",
                   r: "Compañero de equipo · Proyecto universitario",
                   a: "JM",
                 },
                 {
-                  q: "«Me ayudó a revisar mi portafolio y me sugirió mejoras de usabilidad y responsive; se nota que le gusta pulir detalles hasta que se vea bien en el celular.»",
+                  q: "«Tiene muy buena energía, es puntual y confiable. Lo recomiendo sin dudarlo: es de las personas que suman donde estén.»",
                   n: "Álvaro Salazar",
                   r: "Amigo · Colaboración en proyectos personales",
                   a: "AS",
