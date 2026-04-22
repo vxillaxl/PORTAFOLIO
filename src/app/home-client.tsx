@@ -168,14 +168,15 @@ export function HomeClient() {
                 2026 — PORTFOLIO
               </div>
               <div className="w-full max-w-sm rotate-[0.5deg] rounded-3xl border border-blue-100 bg-white p-8 shadow-[0_30px_80px_-40px_rgba(37,99,235,0.35)] transition hover:rotate-0 dark:border-slate-700 dark:bg-slate-900">
-                <div className="relative mx-auto mb-5 aspect-[3/4] w-36 max-w-[min(100%,9rem)] overflow-hidden rounded-2xl border-4 border-white shadow-[0_8px_30px_-8px_rgba(37,99,235,0.35)] ring-1 ring-blue-200/60 dark:border-slate-900 dark:ring-blue-900/50 sm:w-40">
+                <div className="mx-auto mb-5 flex justify-center">
                   <Image
                     src="/foto-perfil.png"
                     alt="Bryan A. Ramírez"
-                    fill
-                    className="object-cover object-[center_18%]"
+                    width={720}
+                    height={960}
                     sizes="(max-width:640px) 144px, 160px"
                     priority
+                    className="h-48 w-36 max-w-full rounded-2xl border-4 border-white object-cover object-[center_18%] shadow-[0_8px_30px_-8px_rgba(37,99,235,0.35)] ring-1 ring-blue-200/60 dark:border-slate-900 dark:ring-blue-900/50 sm:h-52 sm:w-40"
                   />
                 </div>
                 <p className="text-center font-serif text-xl font-bold text-slate-900 dark:text-slate-50">Bryan A. Ramírez</p>
