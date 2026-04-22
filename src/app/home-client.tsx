@@ -6,11 +6,7 @@ import { getMessages } from "@/lib/i18n";
 import Image from "next/image";
 import Link from "next/link";
 
-const projectMeta = [
-  { gh: "https://github.com/vxillaxl/CHECKOUT", demo: "https://vercel.com" },
-  { gh: "https://github.com/vxillaxl", demo: "#" },
-  { gh: "https://github.com/vxillaxl", demo: "#" },
-] as const;
+const projectMeta = [{ demo: "https://vercel.com" }, { demo: "#" }, { demo: "#" }] as const;
 
 const TECH_TOOLS = [
   { name: "React", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
@@ -294,14 +290,6 @@ export function HomeClient() {
                         ))}
                       </div>
                       <div className="mt-5 flex flex-wrap gap-2">
-                        <a
-                          href={links.gh}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="rounded-full bg-blue-700 px-4 py-2 font-mono text-xs font-bold text-white transition hover:bg-blue-800 dark:bg-blue-600 dark:hover:bg-blue-500"
-                        >
-                          {t.projects.gh}
-                        </a>
                         <a
                           href={links.demo}
                           target="_blank"
